@@ -1,5 +1,5 @@
 ---
-title: "Project title"
+title: "STA 199 Project (title TBD)"
 subtitle: "Proposal"
 author: "TEAM 2: E. Wang, T. Chen, V. Garbelotto, S. Sengupta, K. Dong"
 date: "03-07-23"
@@ -13,27 +13,49 @@ editor: visual
 library(tidyverse)
 ```
 
-# Data 1
+# Data 1 - Billionaires
 
 ## Introduction and data
 
 -   Identify the source of the data.
 
+    -   Billionaires CSV File from the CORGIS Dataset Project.
+
+    -   By Ryan Whitcomb\
+        Version 2.0.0, created 5-17-16\
+        Key Tags: money, rich, wealthy, people, person, billionaire
+
+    Website located on 03-07-23:[ https://think.cs.vt.edu/corgis/csv/billionaires/](https://think.cs.vt.edu/corgis/csv/billionaires/)
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    -   "Researchers have compiled a multi-decade database of the super-rich. Building off the Forbes World's Billionaires lists from 1996-2014, scholars at Peterson Institute for International Economics have added a couple dozen more variables about each billionaire - including whether they were self-made or inherited their wealth. (Roughly half of European billionaires and one-third of U.S. billionaires got a significant financial boost from family, the authors estimate.)" - Overview located on CORGIS data set original site.
+
+    -   This publication was cited as the origin of the data:[ http://www.iie.com/publications/interstitial.cfm?ResearchID=2917](http://www.iie.com/publications/interstitial.cfm?ResearchID=2917)
+
 -   Write a brief description of the observations.
+
+    This data set compiles a list of billionaires from around the globe from 1996 until 2016. It ranks them from most to least wealthy, it tells us when the data of each billionaire was collected, their age, their net worth, whether this money was inherited, and more.
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    We would like to explore the correlation between inheritance and current net worth. For this, we would ask... Does receiving an inheritance impact the total net worth of each billionaire? Does birth place/country of citizenship have an impact on inheritance or net worth? Does wealth type impact net worth? Ultimately, did inheritance "create" the majority of the wealthiest billionaires in the world?
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
+
+    We are interested in researching the correlation between inheritance and the net worth of the billionaires listed in this data set. Specifically, we would like to investigate whether inheritance had a key role in creating the world's richest people. We believe this to be true and that the majority of billionaires had help from an inheritance to build their net worth.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
 ## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
+
+    Freund, Caroline, and Sarah Oliver. "The origins of the superrich: the billionaire characteristics database." Peterson Institute for International Economics Working Paper 16-1 (2016).
+
+    This article directly addresses the origins of how billionaires get their wealth and what characteristics contributed to the rise of their wealth.
 
 -   Provide a one paragraph summary about the article.
 
@@ -42,9 +64,9 @@ library(tidyverse)
 ## Glimpse of data
 
 ```{r}
-#| label: load-data-1
+#| label: load-billionaires-data
 
-# add code here
+billionaires <- read_csv("data/billionaires.csv")
 ```
 
 # Data 2 - Elections
