@@ -1,13 +1,14 @@
 ---
 title: "Project title"
 subtitle: "Proposal"
+author: "TEAM 2: E. Wang, T. Chen, V. Garbelotto, S. Sengupta, K. Dong"
+date: "03-07-23"
 format: html
 editor: visual
 ---
 
 ```{r}
 #| label: load-pkgs
-#| message: false
 
 library(tidyverse)
 ```
@@ -30,7 +31,7 @@ library(tidyverse)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-## Literature 
+## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
@@ -64,7 +65,7 @@ library(tidyverse)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-## Literature 
+## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
@@ -98,7 +99,7 @@ library(tidyverse)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-## Literature 
+## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
