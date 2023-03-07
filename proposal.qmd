@@ -35,6 +35,10 @@ library(tidyverse)
 
 -   Find one published credible article on the topic you are interested in researching.
 
+Freund, Caroline, and Sarah Oliver. "The origins of the superrich: the billionaire characteristics database." Peterson Institute for International Economics Working Paper 16-1 (2016).
+
+This article directly addresses the origins of how billionaires get their wealth and what characteristics contributed to the rise of their wealth. 
+
 -   Provide a one paragraph summary about the article.
 
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
@@ -44,7 +48,7 @@ library(tidyverse)
 ```{r}
 #| label: load-data-1
 
-# add code here
+billionaires <- read_csv("data/billionaires.csv")
 ```
 
 # Data 2
