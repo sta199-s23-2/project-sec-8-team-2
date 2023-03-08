@@ -55,11 +55,13 @@ library(tidyverse)
 
     Freund, Caroline, and Sarah Oliver. "The origins of the superrich: the billionaire characteristics database." Peterson Institute for International Economics Working Paper 16-1 (2016).
 
-    This article directly addresses the origins of how billionaires get their wealth and what characteristics contributed to the rise of their wealth.
-
 -   Provide a one paragraph summary about the article.
 
+This article directly addresses the origins of how billionaires get their wealth and what characteristics contributed to the rise of their wealth. The article specifies the age of billionaires as they reach the milestones of becoming millionaires and onwards. It looks into what economic sectors they work in and how much those sectors contributed to their wealth and compares the trends between Europe and America. They also compare personal factors like age and family inheritance.
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth. 
 
 ## Glimpse of data
 
