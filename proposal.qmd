@@ -61,7 +61,7 @@ This article directly addresses the origins of how billionaires get their wealth
 
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
 
-The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth. 
+The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth.
 
 ## Glimpse of data
 
@@ -133,29 +133,55 @@ election <- read_csv("data/election.csv")
 
 -   Identify the source of the data.
 
+    -   CORGIS Dataset Project
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    -   The data curator compiled SAT scores, other academic scores, and demographics data from 2005 - 2015, obtained from academic data published by each state across the country.
+
 -   Write a brief description of the observations.
+
+    -   The observations are largely integers and floats about student test score, average GPAs, and scores separated by subjects, further organized by year, state, and gender. It also includes data about average family income and GPA organized by test score thresholds.
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    -   Is there a significant distinction between family income\'s correlation with Math test scores versus Verbal test scores?
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
+    -   The research topic explores the potential impact of income, a socioeconomic factor, on student math and verbal test score performance. Our hypotheses is that higher income will be correlated with higher test scores, specifically in terms of math test scores.
+
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+    -   Family Income.Between 20-40k.Test-takers, etc. are quantitative variables
+
+    -   Family Income.Between 20-40k.Verbal, etc. are quantitative variables
+
+    -   Family Income.Between 20-40k.Math, etc. are quantitative variables
 
 ## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
+    -   Paulson, Mariko. \"Penn Wharton Budget Model.\" Penn Wharton Budget Model, 28 Sept. 2021, budgetmodel.wharton.upenn.edu/issues/2021/9/28/is-income-\
+        implicit-in-measures-of-student-ability.
+
 -   Provide a one paragraph summary about the article.
 
+    -   ACT test scores and GPA may be influenced by income since there is a strong correlation between these factors. Some potential factors that contributed to this observation could be differences in access to resources such as tutors / study material and the ability to focus on academics without worrying about financial stressors. Additionally, the article notes that these disparities in resources can contribute to a continuous cycle of inequality - since students from low-income backgrounds are less likely to succeed academically, they are less likely to access high-paying jobs in the future. Addressing these disparities is essential for promoting equality and improving outcomes for all students, regardless of their background.
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+    -   My research question builds on the article I sited because it acknowledges the correlation between income and test scores. However, it goes a step further to investigate whether income also has impact on differences in test scores between different subjects.
 
 ## Glimpse of data
 
 ```{r}
 #| label: load-data-3
+scores = read_csv("data/school_scores.csv")
+
+glimpse(scores)
 
 ```
