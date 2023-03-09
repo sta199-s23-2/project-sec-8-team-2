@@ -1,5 +1,5 @@
 ---
-title: "Project title"
+title: "STA 199 Project (title TBD)"
 subtitle: "Proposal"
 author: "TEAM 2: E. Wang, T. Chen, V. Garbelotto, S. Sengupta, K. Dong"
 date: "03-07-23"
@@ -13,7 +13,7 @@ editor: visual
 library(tidyverse)
 ```
 
-# Data 1: Billionaires
+# Data 1 - Billionaires
 
 ## Introduction and data
 
@@ -25,49 +25,58 @@ library(tidyverse)
         Version 2.0.0, created 5-17-16\
         Key Tags: money, rich, wealthy, people, person, billionaire
 
-    -   Website located on 03-07-23: <https://think.cs.vt.edu/corgis/csv/billionaires/>
+    Website located on 03-07-23:<https://think.cs.vt.edu/corgis/csv/billionaires/>
 
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
     -   "Researchers have compiled a multi-decade database of the super-rich. Building off the Forbes World's Billionaires lists from 1996-2014, scholars at Peterson Institute for International Economics have added a couple dozen more variables about each billionaire - including whether they were self-made or inherited their wealth. (Roughly half of European billionaires and one-third of U.S. billionaires got a significant financial boost from family, the authors estimate.)" - Overview located on CORGIS data set original site.
 
-    -   This publication was cited as the origin of the data: <http://www.iie.com/publications/interstitial.cfm?ResearchID=2917>
+    -   This publication was cited as the origin of the data:<http://www.iie.com/publications/interstitial.cfm?ResearchID=2917>
 
 -   Write a brief description of the observations.
 
-    -   This data set compiles a list of billionaires from around the globe from 1996 until 2016. It ranks them from most to least wealthy, it tells us when the data of each billionaire was collected, their age, their net worth, whether this money was inherited, and more.
+    This data set compiles a list of billionaires from around the globe from 1996 until 2016. It ranks them from most to least wealthy, it tells us when the data of each billionaire was collected, their age, their net worth, whether this money was inherited, and more.
 
-## Research Question
+## Research question
 
--   A well-formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
+-   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
-    -   We would like to explore the correlation between inheritance and current net worth. For this, we would ask... Does receiving an inheritance impact the total net worth of each billionaire? Does birth place/country of citizenship have an impact on inheritance or net worth? Does wealth type impact net worth? Ultimately, did inheritance "create" the majority of the wealthiest billionaires in the world?
+    We would like to explore the correlation between inheritance and current net worth. For this, we would ask... Does receiving an inheritance impact the total net worth of each billionaire? Does birth place/country of citizenship have an impact on inheritance or net worth? Does wealth type impact net worth? Ultimately, did inheritance "create" the majority of the wealthiest billionaires in the world?
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
-    -   We are interested in researching the correlation between inheritance and the net worth of the billionaires listed in this data set. Specifically, we would like to investigate whether inheritance had a key role in creating the world's richest people. We believe this to be true and that the majority of billionaires had help from an inheritance to build their net worth.
+    We are interested in researching the correlation between inheritance and the net worth of the billionaires listed in this data set. Specifically, we would like to investigate whether inheritance had a key role in creating the world's richest people. We believe this to be true and that the majority of billionaires had help from an inheritance to build their net worth.
 
+<<<<<<< HEAD
 <!-- -->
 
+=======
+>>>>>>> 2bed2a6dca99b0dfa53c8af11b55f8bd528258b2
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
 ## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
+    Freund, Caroline, and Sarah Oliver. "The origins of the superrich: the billionaire characteristics database." Peterson Institute for International Economics Working Paper 16-1 (2016).
+
 -   Provide a one paragraph summary about the article.
 
+This article directly addresses the origins of how billionaires get their wealth and what characteristics contributed to the rise of their wealth. The article specifies the age of billionaires as they reach the milestones of becoming millionaires and onwards. It looks into what economic sectors they work in and how much those sectors contributed to their wealth and compares the trends between Europe and America. They also compare personal factors like age and family inheritance.
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth.
 
 ## Glimpse of data
 
 ```{r}
-#| label: load-data-1
+#| label: load-billionaires-data
 
 
 ```
 
-# Data 2
+# Data 2 - Elections
 
 ## Introduction and data
 
@@ -77,6 +86,10 @@ library(tidyverse)
 
 -   Write a brief description of the observations.
 
+    This data was collected from CNN's 2016 election center. Ryan Whitcomb collected the data from CNN's website in June 2016. The data contains information on how many county votes and the proportion of the county vote each candidate in the 2016 election received.
+
+    Link to data source: https://think.cs.vt.edu/corgis/csv/election/
+
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
@@ -85,20 +98,38 @@ library(tidyverse)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
+How does geographic location (Northeast, South, West, Midwest) influence what proportion of a county's vote Donald Trump and Hillary Clinton received in the 2016 Presidential Election?
+
+For this research topic we will be examining the varying presidential preferences of voters in different geographic regions of the US. We hypothesize that voters in the the South and Midwest more strongly prefer Donald Trump while voters in the Northeast and West more strongly prefer Hillary Clinton.
+
+Below are the variables we will consider in our analysis:
+
+Region (nominal categorical): Mutate the Location.State Abbreviation variable to group states into four regions - Northeast, South, West, and Midwest
+
+Vote Data.Donald Trump.Percent of Votes (continuous numeric)
+
+Vote Data.Hillary Clinton.Percent of Votes (continuous numeric)
+
 ## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
+    -   Feinberg, M., Tullett, A. M., Mensch, Z., Hart, W., & Gottlieb, S. (2017). The political reference point: How geography shapes political identity. *PLOS ONE*, *12*(2). https://doi.org/10.1371/journal.pone.0171497
+
 -   Provide a one paragraph summary about the article.
 
+    -   The article "The Political Reference Point: How Geography Shapes Political Identity" provides valuable insights into the complex relationship between geography and political identity, highlighting the importance of considering the influence of regions on individual's party affiliation and voting preference. It discusses how social and historical forces such as the Civil Right Movement could shape the political identity of regions significantly, and also geographical factors such as climate, terrain, and resource availability could potentially influence people's values and beliefs. For example, people who live in areas with harsh climates may prioritize self-sufficiency and individualism. Hence, the political "blueness" or "redness" of people's locations also influence their voting preferences, exemplified in the presidential elections.
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+    -   Our team's research question aims to investigate how the relationship between geography and the voting preference exemplified in the 2016 Presidential Election, building on the hypothesis and the conclusion from the journal article. Specifically, we divide the regions to Northeast, South, West, Midwest, and investigate the influence of the regions on the voters' preference towards Donald Trump and Hilary Clinton.
 
 ## Glimpse of data
 
 ```{r}
-#| label: load-data-2
+#| label: load-election-data
 
-# add code here
+election <- read_csv("data/election.csv")
 ```
 
 # Data 3
@@ -107,30 +138,55 @@ library(tidyverse)
 
 -   Identify the source of the data.
 
+    -   CORGIS Dataset Project
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    -   The data curator compiled SAT scores, other academic scores, and demographics data from 2005 - 2015, obtained from academic data published by each state across the country.
+
 -   Write a brief description of the observations.
+
+    -   The observations are largely integers and floats about student test score, average GPAs, and scores separated by subjects, further organized by year, state, and gender. It also includes data about average family income and GPA organized by test score thresholds.
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    -   Is there a significant distinction between family income\'s correlation with Math test scores versus Verbal test scores?
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
+    -   The research topic explores the potential impact of income, a socioeconomic factor, on student math and verbal test score performance. Our hypotheses is that higher income will be correlated with higher test scores, specifically in terms of math test scores.
+
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+    -   Family Income.Between 20-40k.Test-takers, etc. are quantitative variables
+
+    -   Family Income.Between 20-40k.Verbal, etc. are quantitative variables
+
+    -   Family Income.Between 20-40k.Math, etc. are quantitative variables
 
 ## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
+    -   Paulson, Mariko. \"Penn Wharton Budget Model.\" Penn Wharton Budget Model, 28 Sept. 2021, budgetmodel.wharton.upenn.edu/issues/2021/9/28/is-income-\
+        implicit-in-measures-of-student-ability.
+
 -   Provide a one paragraph summary about the article.
 
+    -   ACT test scores and GPA may be influenced by income since there is a strong correlation between these factors. Some potential factors that contributed to this observation could be differences in access to resources such as tutors / study material and the ability to focus on academics without worrying about financial stressors. Additionally, the article notes that these disparities in resources can contribute to a continuous cycle of inequality - since students from low-income backgrounds are less likely to succeed academically, they are less likely to access high-paying jobs in the future. Addressing these disparities is essential for promoting equality and improving outcomes for all students, regardless of their background.
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+    -   My research question builds on the article I sited because it acknowledges the correlation between income and test scores. However, it goes a step further to investigate whether income also has impact on differences in test scores between different subjects.
 
 ## Glimpse of data
 
 ```{r}
 #| label: load-data-3
+scores = read_csv("data/school_scores.csv")
 
-# add code here
+glimpse(scores)
+
 ```
