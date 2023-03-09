@@ -45,9 +45,23 @@ library(tidyverse)
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
-    We are interested in researching the correlation between inheritance and the net worth of the billionaires listed in this data set. Specifically, we would like to investigate whether inheritance had a key role in creating the world's richest people. We believe this to be true and that the majority of billionaires had help from an inheritance to build their net worth.
+    We are interested in researching the correlation between inheritance and the net worth of the billionaires listed in this data set. Specifically, we would like to investigate whether inheritance had a key role in creating the world's richest people. We believe this to be true and that the majority of billionaires had help from an inheritance to build their current net worth.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+The subsequent variables will be considered in our analysis of the **billionaires** data set. Their variable types are as follows:
+
+Name (nominal categorical)
+
+Rank (discrete numeric)
+
+Location.Citizenship (nominal categorical)
+
+Wealth.Type (nominal categorical)
+
+Wealth.How.Inherited (nominal categorical)
+
+Wealth.Worth in Billions (continuous numeric)
 
 ## Literature
 
@@ -68,7 +82,9 @@ The research article analyzes and brings in new information on the impact of inh
 ```{r}
 #| label: load-billionaires-data
 
+billionaires <- read_csv("data/billionaires.csv")
 
+glimpse(billionaires)
 ```
 
 # Data 2 - Elections
@@ -89,13 +105,13 @@ The research article analyzes and brings in new information on the impact of inh
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
--   A description of the research topic along with a concise statement of your hypotheses on this topic.
-
--   Identify the types of variables in your research question. Categorical? Quantitative?
-
 How does geographic location (Northeast, South, West, Midwest) influence what proportion of a county's vote Donald Trump and Hillary Clinton received in the 2016 Presidential Election?
 
+-   A description of the research topic along with a concise statement of your hypotheses on this topic.
+
 For this research topic we will be examining the varying presidential preferences of voters in different geographic regions of the US. We hypothesize that voters in the the South and Midwest more strongly prefer Donald Trump while voters in the Northeast and West more strongly prefer Hillary Clinton.
+
+-   Identify the types of variables in your research question. Categorical? Quantitative?
 
 Below are the variables we will consider in our analysis:
 
@@ -125,6 +141,8 @@ Vote Data.Hillary Clinton.Percent of Votes (continuous numeric)
 #| label: load-election-data
 
 election <- read_csv("data/election.csv")
+
+glimpse(election)
 ```
 
 # Data 3
@@ -147,7 +165,7 @@ election <- read_csv("data/election.csv")
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
-    -   Is there a significant distinction between family income\'s correlation with Math test scores versus Verbal test scores?
+    -   Is there a significant distinction between family income's correlation with Math test scores versus Verbal test scores?
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
@@ -165,7 +183,7 @@ election <- read_csv("data/election.csv")
 
 -   Find one published credible article on the topic you are interested in researching.
 
-    -   Paulson, Mariko. \"Penn Wharton Budget Model.\" Penn Wharton Budget Model, 28 Sept. 2021, budgetmodel.wharton.upenn.edu/issues/2021/9/28/is-income-\
+    -   Paulson, Mariko. "Penn Wharton Budget Model." Penn Wharton Budget Model, 28 Sept. 2021, budgetmodel.wharton.upenn.edu/issues/2021/9/28/is-income-\
         implicit-in-measures-of-student-ability.
 
 -   Provide a one paragraph summary about the article.
