@@ -47,9 +47,8 @@ library(tidyverse)
 
     -   We are interested in researching the correlation between inheritance and the net worth of the billionaires listed in this data set. Specifically, we would like to investigate whether inheritance had a key role in creating the world's richest people. We believe this to be true and that the majority of billionaires had help from an inheritance to build their net worth.
 
-```{=html}
 <!-- -->
-```
+
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
 ## Literature
@@ -65,7 +64,7 @@ library(tidyverse)
 ```{r}
 #| label: load-data-1
 
-billionaires <- read_csv("data/billionaires.csv")
+
 ```
 
 # Data 2
