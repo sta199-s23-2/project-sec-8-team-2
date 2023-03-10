@@ -37,6 +37,10 @@ library(tidyverse)
 
     This data set compiles a list of billionaires from around the globe from 1996 until 2016. It ranks them from most to least wealthy, it tells us when the data of each billionaire was collected, their age, their net worth, whether this money was inherited, and more.
 
+-   Potential ethical concerns.
+
+    Generally, it is best practice for data to be collected voluntarily, and it is possible that this data was collected involuntarily without the subjects' consent. This data set also contains a lot of personal identifying information about individuals, which may conflict for practices of de-identifying subjects and preserving subjects' anonymity.
+
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
@@ -45,9 +49,13 @@ library(tidyverse)
 
     Does receiving an inheritance impact the total net worth of each billionaire? Does birth place/country of citizenship have an impact on inheritance or net worth? Does wealth type impact net worth? Ultimately, did inheritance "create" the majority of the wealthiest billionaires in the world?
 
+-   Statement of why this question is important.
+
+    To an extent, wealth impacts quality of life; thus, many people aspire for wealth with the hope of building a good life for themselves. The "bootstraps" theory asserts that anyone who works hard and "pulls themselves up by their bootstraps" can succeed and become wealthy. However, wealth is inextricably intertwined with factors including privilege, class, race, gender, etc., and exploring this research question is critical to helping us better understand the nature of wealth-building.
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
-    We are interested in researching the correlation between inheritance and the net worth of the billionaires listed in this data set. Specifically, we would like to investigate whether inheritance had a key role in creating the world's richest people. We believe this to be true and that the majority of billionaires had help from an inheritance to build their current net worth.
+    We are interested in researching the correlation between inheritance and the net worth of the billionaires listed in this data set. Specifically, we would like to investigate whether inheritance played a key role in creating the world's richest people. We believe this to be true and that the majority of billionaires had help from an inheritance to build their current net worth.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
@@ -77,7 +85,7 @@ This article directly addresses the origins of how billionaires get their wealth
 
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
 
-The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth.
+The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth. We will specifically interrogate how significant of a role inheritance plays in wealth-building, which in an area that this article does not explicitly address.
 
 ## Glimpse of data
 
@@ -95,33 +103,47 @@ glimpse(billionaires)
 
 -   Identify the source of the data.
 
+    We obtained this data from the Elections CSV contained in the CORGIS Dataset Project.
+
+    Link to data source: https://think.cs.vt.edu/corgis/csv/election/ (accessed on March 7, 2023)
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
+
+    This data was collected from CNN's 2016 election center. Ryan Whitcomb collected the data from CNN's website in June 2016.
+
+    The following website was cited as the source of the data: https://www.cnn.com/election/2016/primaries/counties/va/Dem
 
 -   Write a brief description of the observations.
 
-    This data was collected from CNN's 2016 election center. Ryan Whitcomb collected the data from CNN's website in June 2016. The data contains information on how many county votes and the proportion of the county vote each candidate in the 2016 election received.
+    The data contains information on how many county votes and the proportion of the county vote each candidate in the 2016 election received.
 
-    Link to data source: https://think.cs.vt.edu/corgis/csv/election/
+-   Potential ethical concerns.
+
+    The main concern with this data set is the potential for miscounted ballot totals; however, since these ballot numbers were used to determine the President of the United States, we think the data should be rather reliable and should not raise significant ethical concerns.
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
-How does geographic location (Northeast, South, West, Midwest) influence what proportion of a county's vote Donald Trump and Hillary Clinton received in the 2016 Presidential Election?
+    How does geographic location (Northeast, South, West, Midwest) influence what proportion of a county's vote Donald Trump and Hillary Clinton received in the 2016 Presidential Election?
+
+-   Statement on why this question is important.
+
+    Many politicians, political commentators, and voters acknowledge that specific geographic regions of the US tend to align more closely with either the left or right side of the political spectrum. However, over time, various regions' political leanings may shift. In light of increasingly political polarization in the US, it is critical for us to reexamine the current political state of the nation.
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
-For this research topic we will be examining the varying presidential preferences of voters in different geographic regions of the US. We hypothesize that voters in the the South and Midwest more strongly prefer Donald Trump while voters in the Northeast and West more strongly prefer Hillary Clinton.
+    For this research topic we will be examining the varying presidential preferences of voters in different geographic regions of the US. We hypothesize that voters in the the South and Midwest more strongly prefer Donald Trump while voters in the Northeast and West more strongly prefer Hillary Clinton.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-Below are the variables we will consider in our analysis:
+    Below are the variables we will consider in our analysis:
 
-Region (nominal categorical): Mutate the Location.State Abbreviation variable to group states into four regions - Northeast, South, West, and Midwest
+    Region (nominal categorical): Mutate the Location.State Abbreviation variable to group states into four regions - Northeast, South, West, and Midwest
 
-Vote Data.Donald Trump.Percent of Votes (continuous numeric)
+    Vote Data.Donald Trump.Percent of Votes (continuous numeric)
 
-Vote Data.Hillary Clinton.Percent of Votes (continuous numeric)
+    Vote Data.Hillary Clinton.Percent of Votes (continuous numeric)
 
 ## Literature
 
@@ -131,7 +153,7 @@ Vote Data.Hillary Clinton.Percent of Votes (continuous numeric)
 
 -   Provide a one paragraph summary about the article.
 
-    -   The article "The Political Reference Point: How Geography Shapes Political Identity" provides valuable insights into the complex relationship between geography and political identity, highlighting the importance of considering the influence of regions on individual's party affiliation and voting preference. It discusses how social and historical forces such as the Civil Right Movement could shape the political identity of regions significantly, and also geographical factors such as climate, terrain, and resource availability could potentially influence people's values and beliefs. For example, people who live in areas with harsh climates may prioritize self-sufficiency and individualism. Hence, the political "blueness" or "redness" of people's locations also influence their voting preferences, exemplified in the presidential elections.
+    -   The article "The Political Reference Point: How Geography Shapes Political Identity" provides valuable insights into the complex relationship between geography and political identity, highlighting the importance of considering the influence of regions on individual's party affiliation and voting preference. It discusses how social and historical forces such as the Civil Rights Movement could shape the political identity of regions significantly, and also how geographical factors such as climate, terrain, and resource availability could potentially influence people's values and beliefs. For example, people who live in areas with harsh climates may prioritize self-sufficiency and individualism. Hence, the political "blueness" or "redness" of people's locations also influence their voting preferences, exemplified in the presidential elections.
 
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
 
@@ -153,25 +175,37 @@ glimpse(election)
 
 -   Identify the source of the data.
 
-    -   CORGIS Dataset Project
+    School Scores csv from CORGIS Dataset Project
+
+    Data was compiled by Austin Cory Bart
+
+    https://think.cs.vt.edu/corgis/csv/school_scores/ (accessed March 7, 2023)
 
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
-    -   The data curator compiled SAT scores, other academic scores, and demographics data from 2005 - 2015, obtained from academic data published by each state across the country.
+    The data curator compiled SAT scores, other academic scores, and demographics data from 2005 - 2015, obtained from academic data published by each state across the country.
 
 -   Write a brief description of the observations.
 
-    -   The observations are largely integers and floats about student test score, average GPAs, and scores separated by subjects, further organized by year, state, and gender. It also includes data about average family income and GPA organized by test score thresholds.
+    The observations are largely integers and floats about student test score, average GPAs, and scores separated by subjects, further organized by year, state, and gender. It also includes data about average family income and GPA organized by test score thresholds.
+
+-   Potential ethical concerns.
+
+    The primary ethical concern with this data set is information ownership. The College Board has been criticized for monetizing students' data and selling student information to make a profit. Students' academic data may be collected without their consent, or students may be unaware of how their data will be used, which may be problematic.
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
-    -   Is there a significant distinction between family income's correlation with Math test scores versus Verbal test scores?
+    Is there a significant distinction between family income's correlation with Math test scores versus Verbal test scores?
+
+-   Statement on why this question is important.
+
+    The College Board markets the SAT as an excellent predictor of students' aptitude and college readiness. However, students' scores may be influenced by their background, environment, and access to educational resources. This question is relevant to either validating or resisting the College Board's assertions about the value of SAT scores as a metric of student aptitude.
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
-    -   The research topic explores the potential impact of income, a socioeconomic factor, on student math and verbal test score performance. Our hypotheses is that higher income will be correlated with higher test scores, specifically in terms of math test scores.
+    The research topic explores the potential impact of income, a socioeconomic factor, on student math and verbal test score performance. Our hypotheses is that higher income will be correlated with higher test scores, specifically in terms of math test scores.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
@@ -194,7 +228,7 @@ glimpse(election)
 
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
 
-    -   My research question builds on the article I sited because it acknowledges the correlation between income and test scores. However, it goes a step further to investigate whether income also has impact on differences in test scores between different subjects.
+    Our research question builds on this article because it acknowledges the correlation between income and test scores. However, it goes a step further to investigate whether income also has impact on differences in test scores between different subjects.
 
 ## Glimpse of data
 
