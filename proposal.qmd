@@ -87,6 +87,18 @@ This article directly addresses the origins of how billionaires get their wealth
 
 The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth. We will specifically interrogate how significant of a role inheritance plays in wealth-building, which in an area that this article does not explicitly address.
 
+Another potential published credible article:
+
+Sanandaji, Tino. "The international mobility of billionaires." Small Business Economics 42 (2014): 329-338.
+
+One paragraph summary
+
+This article uses Forbes Magazine's list of billionaires and additional information to study the migration of billionaires and their sources of income that lead to them building their wealth and how their wealth interacts with the economy of the countries they live in and move to or from. 
+
+-   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+This study gives us better context on billionaires and the interactions of their wealth and movements that focuses on a couple of factors outside of the previous article and our own data set which could explain some of our own variables.
+
 ## Glimpse of data
 
 ```{r}
