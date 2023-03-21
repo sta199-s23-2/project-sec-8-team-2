@@ -4,9 +4,9 @@ format: html
 editor: visual
 ---
 
-This project was developed by **\[team name\]** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members.
+This project was developed by **Team 2** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members.
 
--   Team member 1: One sentence description of Team member 1 (e.g., year, major, etc.).
+-   Emily Wang: Emily is a first-year planning on pursuing a major in Chemistry and minor in Asian American Diaspora Studies.
 -   Team member 2: One sentence description of Team member 2 (e.g., year, major, etc.).
 -   Team member 3: One sentence description of Team member 3 (e.g., year, major, etc.).
 -   Team member 4: One sentence description of Team member 4 (e.g., year, major, etc.).
