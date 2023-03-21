@@ -1,5 +1,5 @@
 ---
-title: "STA 199 Project (title TBD)"
+title: "Billionaire Wealth"
 subtitle: "Proposal"
 author: "TEAM 2: E. Wang, T. Chen, V. Garbelotto, S. Sengupta, K. Dong"
 date: "03-07-23"
@@ -50,27 +50,25 @@ library(tidyverse)
 
     Does receiving an inheritance impact the total net worth of each billionaire? Does birth place/country of citizenship have an impact on inheritance or net worth? Does wealth type impact net worth? Ultimately, did inheritance "create" the majority of the wealthiest billionaires in the world?
 
+    **Revised research question (03/21/2023): How do wealth category, citizenship, and wealth type related to billionaire net worths in 2016?**
+
 -   Statement of why this question is important.
 
     To an extent, wealth impacts quality of life; thus, many people aspire for wealth with the hope of building a good life for themselves. The "bootstraps" theory asserts that anyone who works hard and "pulls themselves up by their bootstraps" can succeed and become wealthy. However, wealth is inextricably intertwined with factors including privilege, class, race, gender, etc., and exploring this research question is critical to helping us better understand the nature of wealth-building.
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
-    We are interested in researching the correlation between inheritance and the net worth of the billionaires listed in this data set. Specifically, we would like to investigate whether inheritance played a key role in creating the world's richest people. We believe this to be true and that the majority of billionaires had help from an inheritance to build their current net worth.
+    We are interested in researching the relationship between different factors and the net worth of the billionaires listed in this data set. Specifically, we would like to investigate whether inheritance, wealth category, and citizenship played a key role in creating the world's richest people. We hypothesize that financial wealth, European citizenship, and inheritance are related to billionaires having higher net worths.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
 The subsequent variables will be considered in our analysis of the **billionaires** data set. Their variable types are as follows:
 
-Name (nominal categorical)
-
-Rank (discrete numeric)
+Wealth.how.category (nominal categorical)
 
 Location.Citizenship (nominal categorical)
 
 Wealth.Type (nominal categorical)
-
-Wealth.How.Inherited (nominal categorical)
 
 Wealth.Worth in Billions (continuous numeric)
 
