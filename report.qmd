@@ -1,10 +1,39 @@
 ---
-title: "Project title"
+title: "Billionaire Wealth""
 subtitle: "Report"
+author: "TEAM 2: E. Wang, T. Chen, V. Garbelotto, S. Sengupta, K. Dong"
+date: "03-28-2023"
 format: html
 editor: visual
 execute:
   echo: true
 ---
 
-Add project writeup here.
+```{r}
+#| label: load-pkgs
+#| message: false
+#| warning: false
+
+library(tidyverse)
+
+```
+
+```{r}
+#| label: load-billionaires-data
+
+billionaires <- read_csv("data/billionaires.csv")
+
+glimpse(billionaires)
+```
+
+# Introduction and Data
+
+# Methodology
+
+# Results
+## Single variable linear regression models
+
+```{r}
+
+```
+
