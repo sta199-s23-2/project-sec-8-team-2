@@ -1,20 +1,25 @@
 ---
-title: "Billionaire Wealth""
+title: "Billionaire Wealth"
 subtitle: "Report"
 author: "TEAM 2: E. Wang, T. Chen, V. Garbelotto, S. Sengupta, K. Dong"
-date: "03-28-2023"
+date: "03-07-23"
 format: html
 editor: visual
 execute:
   echo: true
 ---
 
+# Introduction and Data
+
+# Methodology
+## Housekeeping
 ```{r}
 #| label: load-pkgs
 #| message: false
 #| warning: false
 
 library(tidyverse)
+library(tidymodels)
 
 ```
 
@@ -26,14 +31,58 @@ billionaires <- read_csv("data/billionaires.csv")
 glimpse(billionaires)
 ```
 
-# Introduction and Data
+```{r}
+#l label: coerce-valid-var-names
 
-# Methodology
+names(billionaires) <- make.names(names(billionaires), unique = TRUE)
+```
+
+```{r}
+#l label: mutate-citizenship
+
+categories_vec <- unique(billionaires$location.citizenship)
+categories_tib <- enframe(categories_vec)
+
+billionaires <- billionaires |>
+  mutate(citizenship_euro = if_else(location.citizenship %in% 
+                   c("Switzerland", "Spain", "Germany", "Sweden", "France", "Italy", "Russia", "United Kingdom", "Turkey", "Netherlands", "Greece", "Ireland", "Ukraine", "Czech Republic", "Denmark", "Austria", "Portugal", "Liechtenstein", "Norway", "Belgium", "Poland", "Finland", "Guernsey", "Romania", "Lithuania"), "Europe", "Not Europe"))
+```
 
 # Results
 ## Single variable linear regression models
 
 ```{r}
+#l label: lin-reg-wealth-category
+
+linear_reg() |>
+  set_engine("lm") |>
+  fit(wealth.worth.in.billions ~ wealth.how.category, data = billionaires) |>
+  tidy()
 
 ```
 
+$$\widehat{wealth} = 2.36 - 0.464 * energy - 1.06 * finance + 0.872 * financial
++ 1.79 * new + 1.41 * non-traded + 1.07 * resource + 1.21 * traded - 1.16 * trucking$$
+
+```{r}
+#l label: lin-reg-wealth-type
+
+linear_reg() |>
+  set_engine("lm") |>
+  fit(wealth.worth.in.billions ~ wealth.type, data = billionaires) |>
+  tidy()
+
+```
+
+$$\widehat{wealth} = 2.62 + 1.14 * founder + 1.09 * inherited + 1.11 * privatized + 0.447 * self-made$$
+
+```{r}
+#l label: lin-reg-citizenship
+
+linear_reg() |>
+  set_engine("lm") |>
+  fit(wealth.worth.in.billions ~ citizenship_euro, data = billionaires) |>
+  tidy()
+```
+
+$$\widehat{wealth} = 3.72 - 0.258 * NotEurope$$
