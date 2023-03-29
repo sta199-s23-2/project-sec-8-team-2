@@ -259,9 +259,9 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(billionaires) <span class="ot">&lt;-</span> <span class="fu">make.names</span>(<span class="fu">names</span>(billionaires), <span class="at">unique =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#l label: 2016-only</span></span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#l label: 2014-only</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>billionaires_2016 <span class="ot">&lt;-</span> billionaires <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>billionaires_2014 <span class="ot">&lt;-</span> billionaires <span class="sc">|&gt;</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">"2014"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -270,7 +270,7 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>categories_vec <span class="ot">&lt;-</span> <span class="fu">unique</span>(billionaires<span class="sc">$</span>location.citizenship)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>categories_tib <span class="ot">&lt;-</span> <span class="fu">enframe</span>(categories_vec)</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>billionaires_2016 <span class="ot">&lt;-</span> billionaires_2016 <span class="sc">|&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>billionaires_2014 <span class="ot">&lt;-</span> billionaires_2014 <span class="sc">|&gt;</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">citizenship_euro =</span> <span class="fu">if_else</span>(location.citizenship <span class="sc">%in%</span> </span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">c</span>(<span class="st">"Switzerland"</span>, <span class="st">"Spain"</span>, <span class="st">"Germany"</span>, <span class="st">"Sweden"</span>, <span class="st">"France"</span>, <span class="st">"Italy"</span>, <span class="st">"Russia"</span>, <span class="st">"United Kingdom"</span>, <span class="st">"Turkey"</span>, <span class="st">"Netherlands"</span>, <span class="st">"Greece"</span>, <span class="st">"Ireland"</span>, <span class="st">"Ukraine"</span>, <span class="st">"Czech Republic"</span>, <span class="st">"Denmark"</span>, <span class="st">"Austria"</span>, <span class="st">"Portugal"</span>, <span class="st">"Liechtenstein"</span>, <span class="st">"Norway"</span>, <span class="st">"Belgium"</span>, <span class="st">"Poland"</span>, <span class="st">"Finland"</span>, <span class="st">"Guernsey"</span>, <span class="st">"Romania"</span>, <span class="st">"Lithuania"</span>), <span class="st">"Europe"</span>, <span class="st">"Not Europe"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -285,7 +285,7 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>wealth_category <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> wealth.how.category, <span class="at">data =</span> billionaires_2016) <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> wealth.how.category, <span class="at">data =</span> billionaires_2014) <span class="sc">|&gt;</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -297,7 +297,7 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>wealth_type <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> wealth.type, <span class="at">data =</span> billionaires_2016) <span class="sc">|&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> wealth.type, <span class="at">data =</span> billionaires_2014) <span class="sc">|&gt;</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -307,7 +307,7 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>citizenship <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> citizenship_euro, <span class="at">data =</span> billionaires_2016) <span class="sc">|&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> citizenship_euro, <span class="at">data =</span> billionaires_2014) <span class="sc">|&gt;</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
