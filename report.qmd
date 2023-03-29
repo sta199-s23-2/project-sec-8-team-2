@@ -9,9 +9,13 @@ execute:
 
 # Introduction and Data
 
-To the average person, the modern billionaire is at once mysterious and completely scrutable. Few will ever come face to face with a billionaire, yet many can name the likes of Jeff Bezos and Bill Gates and a handful of facts about each. While these billionaires sit on enormous wealth, billions of people around the globe live below the poverty. Our realities of poverty amongst wealth and stark inequality thus beg the questions how are some amassing such wealth and what factors might be correlated with wealth accumulation? 
+To the average person, the modern billionaire is at once mysterious and completely scrutable. Few will ever come face to face with a billionaire, yet many can name the likes of Jeff Bezos and Bill Gates and a facts about each. While these billionaires sit on enormous wealth, 47% of the world lives on less than $6.85 per day, and 84% lives on less than $30 per day [1]. Moreover, the past two decades have seen a steep increase in global inequality as the world's billionaires have captured an increasing proportion of global wealth [2]. Our realities of poverty among wealth and stark inequality thus incite questions about how world leaders should engage wth billionaire wealth - was this wealth justly acquired? What is the ethicality of wealth re-distribution? Wealth accummulation also invites larger philosophical questions of how society values or devalues certain activities over others. 
 
-In this report, we assess data 
+Given these considerations, in this report, we investigate the potential sources of billionaire wealth. Specifically, we assess several the question how do wealth category, citizenship, and wealth type related to billionaire net worths in 2014? 
+
+***insert hypothesis discussion by Teresa***
+
+Our data comes from the "billionaires" data set, which we obtained from the CORGIS Dataset Project. This data set was created by Ryan Whitcomb in 2016 and originally sourced from a report by Caroline Freund and Sarah Oliver of the Peterson Institute for International Economics. Freund and Oliver compiled data from the Forbes World's Billionaires lists from 1996-2014 and added several dozen additional variables to create this data set [3]. The "billionaires" data set includes information on billionaires taken at three time points: 1996, 2001, and 2014. 
 
 # Methodology
 ## Housekeeping
@@ -103,3 +107,10 @@ citizenship <- linear_reg() |>
 $$\widehat{wealth} = 4.04 - 0.193 * NotEurope$$
 
 AIC = 10477.63
+
+# Works Cited
+1. Joe Hasell, Max Roser, Esteban Ortiz-Ospina and Pablo Arriagada (2022) - "Poverty". Published online at OurWorldInData.org. Retrieved from: 'https://ourworldindata.org/poverty' [Online Resource]
+
+2. Myers, J. (2021, December 10). These charts show the growing gap between the world's richest and poorest. World Economic Forum. Retrieved March 29, 2023, from https://www.weforum.org/agenda/2021/12/global-income-inequality-gap-report-rich-poor/#:~:text=2020%20marked%20the%20steepest%20increase,1%25%20to%20over%203%25. 
+
+3. Freund, C., &amp; Oliver, S. (2016). (working paper). The Origins of the Superrich: The Billionaire Characteristics Database. Peterson Institute for Economics. 
