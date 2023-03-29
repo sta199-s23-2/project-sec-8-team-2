@@ -15,7 +15,9 @@ Given these considerations, in this report, we investigate the potential sources
 
 ***insert hypothesis discussion by Teresa***
 
-Our data comes from the "billionaires" data set, which we obtained from the CORGIS Dataset Project. This data set was created by Ryan Whitcomb in 2016 and originally sourced from a report by Caroline Freund and Sarah Oliver of the Peterson Institute for International Economics. Freund and Oliver compiled data from the Forbes World's Billionaires lists from 1996-2014 and added several dozen additional variables to create this data set [3]. The "billionaires" data set includes information on billionaires taken at three time points: 1996, 2001, and 2014. *add more to this part from the paper*
+Our data comes from the "billionaires" data set, which we obtained from the CORGIS Dataset Project. This data set was created by Ryan Whitcomb in 2016 and originally sourced from a report by Caroline Freund and Sarah Oliver of the Peterson Institute for International Economics. Freund and Oliver derived their data set from Forbes World's Billionaires lists from 1996-2014 [3]. Forbes journalists drew from shareholder information, company financial statements, current exchange rates, and meetings with candidates to estimate billionaire net worths. From 1996-2010, the Forbes data included name, rank, citizenship, and net worth. Then, in 2011, Forbes added the source of wealth (company or sector). 
+
+Freund and Oliver supplemented the Forbes data with additional variables that describe the characteristics of billionaires and their businesses. The "billionaires" data set includes information on billionaires taken at three time points: 1996, 2001, and 2014. 
 
 This report focuses on four variables: wealth, wealth type, wealth category, and citizenship. Following is a brief description of each variable of interest:
 
@@ -26,6 +28,8 @@ This report focuses on four variables: wealth, wealth type, wealth category, and
 3. Wealth category - Called "wealth.how.category" in the data set. A nominal categorical variable that describes the category of wealth. For billionaires in 2014, there are six wealth categories: energy, financial, new, non-traded, resource, and traded. 
 
 4. Citizenship - Called "location.citizenship" in the data set. A nominal categorical variable that describes the country of citizenship of the billionaire. In this report, we group citizenship into Europe and Not Europe. 
+
+The method by which information for this data set was collected priimarily raises two ethical concerns. First, when data collection involves human subjects, it is best practice to obtain the subjects' consent. Although the Forbes journalists conducted interviews with subjects, it is unclear whether the journalists obtained the consent of all the billionaires that they collected data on. Moreover, it is unclear whether how Forbes obtained shareholder information and company financial statements. Second, this data set contains extensive personal identifying information about individuals, which may conflict for practices of de-identifying subjects and preserving subjects' anonymity.
 
 # Methodology
 ## Housekeeping
