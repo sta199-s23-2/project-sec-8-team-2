@@ -40,9 +40,9 @@ names(billionaires) <- make.names(names(billionaires), unique = TRUE)
 ```
 
 ```{r}
-#l label: 2016-only
+#l label: 2014-only
 
-billionaires_2016 <- billionaires |>
+billionaires_2014 <- billionaires |>
   filter(year == "2014")
 ```
 
@@ -65,7 +65,7 @@ billionaires_2016 <- billionaires_2016 |>
 
 wealth_category <- linear_reg() |>
   set_engine("lm") |>
-  fit(wealth.worth ~ wealth.how.category, data = billionaires_2016) |>
+  fit(wealth.worth ~ wealth.how.category, data = billionaires_2014) |>
   glance() |>
   pull(AIC)
 
@@ -81,7 +81,7 @@ AIC = 10474.78
 
 wealth_type <- linear_reg() |>
   set_engine("lm") |>
-  fit(wealth.worth ~ wealth.type, data = billionaires_2016) |>
+  fit(wealth.worth ~ wealth.type, data = billionaires_2014) |>
   glance() |>
   pull(AIC)
 
@@ -95,7 +95,7 @@ AIC = 10458.57
 
 citizenship <- linear_reg() |>
   set_engine("lm") |>
-  fit(wealth.worth ~ citizenship_euro, data = billionaires_2016) |>
+  fit(wealth.worth ~ citizenship_euro, data = billionaires_2014) |>
   glance() |>
   pull(AIC)
 ```
