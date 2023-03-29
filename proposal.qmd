@@ -51,7 +51,7 @@ library(tidyverse)
 
     Does receiving an inheritance impact the total net worth of each billionaire? Does birth place/country of citizenship have an impact on inheritance or net worth? Does wealth type impact net worth? Ultimately, did inheritance "create" the majority of the wealthiest billionaires in the world?
 
-    **Revised research question (03/21/2023): How do wealth category, citizenship, and wealth type related to billionaire net worths in 2016?**
+    **Revised research question (03/21/2023): How do wealth category, citizenship, and wealth type related to billionaire net worths in 2014?**
 
 -   Statement of why this question is important.
 
