@@ -75,6 +75,46 @@ billionaires_2014 <- billionaires_2014 |>
                    c("Switzerland", "Spain", "Germany", "Sweden", "France", "Italy", "Russia", "United Kingdom", "Turkey", "Netherlands", "Greece", "Ireland", "Ukraine", "Czech Republic", "Denmark", "Austria", "Portugal", "Liechtenstein", "Norway", "Belgium", "Poland", "Finland", "Guernsey", "Romania", "Lithuania"), "Europe", "Not Europe"))
 ```
 
+```{r}
+#| label: summary_stats
+
+billionaires_2014 |>
+  summarize(m_wealth = mean(wealth.worth),
+            me_wealth = median(wealth.worth),
+            sd_wealth = sd(wealth.worth),
+            na.rm = T)
+
+billionaires_2014 |>
+  group_by(wealth.how.industry) |>
+  summarize(m_industry = mean(wealth.worth),
+            me_industry = median(wealth.worth),
+            sd_industry = sd(wealth.worth),
+            na.rm = T)
+
+billionaires_2014 |>
+  group_by(wealth.how.category) |>
+   summarize(m_category = mean(wealth.worth),
+            me_category = median(wealth.worth),
+            sd_category = sd(wealth.worth),
+            na.rm = T)
+
+billionaires_2014 |>
+  group_by(location.citizenship) |>
+   summarize(m_citizen = mean(wealth.worth),
+            me_citizen = median(wealth.worth),
+            sd_citizen = sd(wealth.worth),
+            na.rm = T)
+
+billionaires_2014 |>
+  group_by(wealth.how.inherited) |>
+  summarize(m_inherited = mean(wealth.worth),
+            me_inherited = median(wealth.worth),
+            sd_inherited = sd(wealth.worth),
+            na.rm = T)
+
+```
+
+
 # Results
 ## Single variable linear regression models
 
