@@ -9,30 +9,32 @@ execute:
 
 # Introduction and Data
 
-To the average person, the modern billionaire is at once mysterious and completely scrutable. Few will ever come face to face with a billionaire, yet many can name the likes of Jeff Bezos and Bill Gates and a facts about each. While these billionaires sit on enormous wealth, 47% of the world lives on less than $6.85 per day, and 84% lives on less than $30 per day [1]. Moreover, the past two decades have seen a steep increase in global inequality as the world's billionaires have captured an increasing proportion of global wealth [2]. Our realities of poverty among wealth and stark inequality thus incite questions about how world leaders should engage wth billionaire wealth - was this wealth justly acquired? What is the ethicality of wealth re-distribution? Wealth accummulation also invites larger philosophical questions of how society values or devalues certain activities over others. 
+To the average person, the modern billionaire is at once mysterious and completely scrutable. Few will ever come face to face with a billionaire, yet many can name the likes of Jeff Bezos and Bill Gates and a facts about each. While these billionaires sit on enormous wealth, 47% of the world lives on less than \$6.85 per day, and 84% lives on less than \$30 per day \[1\]. Moreover, the past two decades have seen a steep increase in global inequality as the world's billionaires have captured an increasing proportion of global wealth \[2\]. Our realities of poverty among wealth and stark inequality thus incite questions about how world leaders should engage wth billionaire wealth - was this wealth justly acquired? What is the ethicality of wealth re-distribution? Wealth accummulation also invites larger philosophical questions of how society values or devalues certain activities over others.
 
-Given these considerations, in this report, we investigate the potential sources of billionaire wealth. Specifically, we assess several the question how do wealth category, citizenship, and wealth type related to billionaire net worths in 2014? 
+Given these considerations, in this report, we investigate the potential sources of billionaire wealth. Specifically, we assess several the question how do wealth category, citizenship, and wealth type related to billionaire net worths in 2014?
 
 ***insert hypothesis discussion by Teresa***
 
-Our data comes from the "billionaires" data set, which we obtained from the CORGIS Dataset Project. This data set was created by Ryan Whitcomb in 2016 and originally sourced from a report by Caroline Freund and Sarah Oliver of the Peterson Institute for International Economics. Freund and Oliver derived their data set from Forbes World's Billionaires lists from 1996-2014 [3]. Forbes journalists drew from shareholder information, company financial statements, current exchange rates, and meetings with candidates to estimate billionaire net worths. From 1996-2010, the Forbes data included name, rank, citizenship, and net worth. Then, in 2011, Forbes added the source of wealth (company or sector). 
+Our data comes from the "billionaires" data set, which we obtained from the CORGIS Dataset Project. This data set was created by Ryan Whitcomb in 2016 and originally sourced from a report by Caroline Freund and Sarah Oliver of the Peterson Institute for International Economics. Freund and Oliver derived their data set from Forbes World's Billionaires lists from 1996-2014 \[3\]. Forbes journalists drew from shareholder information, company financial statements, current exchange rates, and meetings with candidates to estimate billionaire net worths. From 1996-2010, the Forbes data included name, rank, citizenship, and net worth. Then, in 2011, Forbes added the source of wealth (company or sector).
 
-Freund and Oliver supplemented the Forbes data with additional variables that describe the characteristics of billionaires and their businesses. The "billionaires" data set includes information on billionaires taken at three time points: 1996, 2001, and 2014. 
+Freund and Oliver supplemented the Forbes data with additional variables that describe the characteristics of billionaires and their businesses. The "billionaires" data set includes information on billionaires taken at three time points: 1996, 2001, and 2014.
 
 This report focuses on four variables: wealth, wealth type, wealth category, and citizenship. Following is a brief description of each variable of interest:
 
-1. Wealth - Called "wealth.worth.in.billions" in the data set. A continuous numeric variable that describes the wealth in billions for each observation, where one observation is one billionaire at one time point. 
+1.  Wealth - Called "wealth.worth.in.billions" in the data set. A continuous numeric variable that describes the wealth in billions for each observation, where one observation is one billionaire at one time point.
 
-2. Wealth type - Called "wealth.type" in the data set. A nominal categorical variable that describes the the type of wealth. For billionaires in 2014, there are four wealth types: founder, inherited, privatized, and self-made. 
+2.  Wealth type - Called "wealth.type" in the data set. A nominal categorical variable that describes the the type of wealth. For billionaires in 2014, there are four wealth types: founder, inherited, privatized, and self-made.
 
-3. Wealth category - Called "wealth.how.category" in the data set. A nominal categorical variable that describes the category of wealth. For billionaires in 2014, there are six wealth categories: energy, financial, new, non-traded, resource, and traded. 
+3.  Wealth category - Called "wealth.how.category" in the data set. A nominal categorical variable that describes the category of wealth. For billionaires in 2014, there are six wealth categories: energy, financial, new, non-traded, resource, and traded.
 
-4. Citizenship - Called "location.citizenship" in the data set. A nominal categorical variable that describes the country of citizenship of the billionaire. In this report, we group citizenship into Europe and Not Europe. 
+4.  Citizenship - Called "location.citizenship" in the data set. A nominal categorical variable that describes the country of citizenship of the billionaire. In this report, we group citizenship into Europe and Not Europe.
 
 The method by which information for this data set was collected priimarily raises two ethical concerns. First, when data collection involves human subjects, it is best practice to obtain the subjects' consent. Although the Forbes journalists conducted interviews with subjects, it is unclear whether the journalists obtained the consent of all the billionaires that they collected data on. Moreover, it is unclear whether how Forbes obtained shareholder information and company financial statements. Second, this data set contains extensive personal identifying information about individuals, which may conflict for practices of de-identifying subjects and preserving subjects' anonymity.
 
 # Methodology
+
 ## Housekeeping
+
 ```{r}
 #| label: load-pkgs
 #| message: false
@@ -114,8 +116,8 @@ billionaires_2014 |>
 
 ```
 
-
 # Results
+
 ## Single variable linear regression models
 
 ```{r}
@@ -145,8 +147,7 @@ wealth_type <- linear_reg() |>
 
 ```
 
-$$\widehat{wealth} = 2.70 + 1.42 * founder + 1.72 * inherited + 1.31 * privatized + 0.609 * self-made$$
-AIC = 10458.57
+$$\widehat{wealth} = 2.70 + 1.42 * founder + 1.72 * inherited + 1.31 * privatized + 0.609 * self-made$$ AIC = 10458.57
 
 ```{r}
 #l label: lin-reg-citizenship
@@ -162,9 +163,70 @@ $$\widehat{wealth} = 4.04 - 0.193 * NotEurope$$
 
 AIC = 10477.63
 
+## Two variable linear regression models
+
+```{r}
+#| label: add-wealth-type-and-citizenship
+
+add_model_1 <- linear_reg() |>
+  set_engine("lm") |>
+  fit(wealth.worth ~ wealth.type + citizenship_euro, data = billionaires_2014) |>
+  glance() |>
+  pull(AIC)
+```
+
+$$\widehat{wealth} = 2.74 + 1.42 * founder + 1.71 * inherited + 1.29 * privatized + 0.61 * self-made - 0.0557 * citizenship_euro$$
+
+AIC = 10460.54
+
+```{r}
+#| label: int-wealth-type-and-citizenship
+
+int_model_1 <- linear_reg() |>
+  set_engine("lm") |>
+  fit(wealth.worth ~ wealth.type * citizenship_euro, data = billionaires_2014) |>
+  glance() |>
+  pull(AIC)
+```
+
+$$\widehat{wealth} = 4.36 - 0.0224 * founder + 0.0178 * inherited - 0.208 * privatized - 2.03 * self-made - 2.12 * citizenship-not-euro + 1.84 * founder-not-euro + 2.18 * inerited-not-euro + 1.83 * privatized-not-euro + 3.33 * self-made-not-euro $$
+
+AIC = 10462.5
+
+```{r}
+#| label: add-wealth-type-and-category
+
+add_model_2 <- linear_reg() |>
+  set_engine("lm") |>
+  fit(wealth.worth ~ wealth.type + wealth.how.category, data = billionaires_2014) |>
+  glance() |>
+  pull(AIC)
+```
+
+$$\widehat{wealth} = 1.37 + 1.36 * founder + 1.92 * inherited + 1.68 * privatized + 1.09 * self-made - 1.15 * energy + 0.838 * financial + 1.68 * new-sectors + 1.36 * non-traded-sectors + 0.869 * resource + 1.08 * traded-sectors $$
+
+AIC = 10458.79
+
+```{r}
+#| label: int-wealth-type-and-category
+
+int_model_2 <- linear_reg() |>
+  set_engine("lm") |>
+  fit(wealth.worth ~ wealth.type * wealth.how.category, data = billionaires_2014) |>
+  glance() |>
+  pull(AIC)
+```
+
+$$\widehat{wealth} = 1.98 + 0.407 * founder + 1.54 * inherited - 0.142 * privatized - 0.514 * self-made + 0.0646 * energy + 1.84 * financial + 0.582 * new-sectors + 0.872 * non-traded-sectors +2.04 * resource $$
+
+AIC = 10472.22
+
+## Three variable linear regression models
+
 # Works Cited
-1. Joe Hasell, Max Roser, Esteban Ortiz-Ospina and Pablo Arriagada (2022) - "Poverty". Published online at OurWorldInData.org. Retrieved from: 'https://ourworldindata.org/poverty' [Online Resource]
 
-2. Myers, J. (2021, December 10). These charts show the growing gap between the world's richest and poorest. World Economic Forum. Retrieved March 29, 2023, from https://www.weforum.org/agenda/2021/12/global-income-inequality-gap-report-rich-poor/#:~:text=2020%20marked%20the%20steepest%20increase,1%25%20to%20over%203%25. 
+1.  Joe Hasell, Max Roser, Esteban Ortiz-Ospina and Pablo Arriagada (2022) - "Poverty". Published online at OurWorldInData.org. Retrieved from: 'https://ourworldindata.org/poverty' \[Online Resource\]
 
-3. Freund, C., &amp; Oliver, S. (2016). (working paper). The Origins of the Superrich: The Billionaire Characteristics Database. Peterson Institute for Economics. 
+2.  Myers, J. (2021, December 10). These charts show the growing gap between the world's richest and poorest. World Economic Forum. Retrieved March 29, 2023, from https://www.weforum.org/agenda/2021/12/global-income-inequality-gap-report-rich-poor/#:\~:text=2020%20marked%20the%20steepest%20increase,1%25%20to%20over%203%25.
+
+3.  Freund, C., & Oliver, S. (2016). (working paper). The Origins of the Superrich: The Billionaire Characteristics Database. Peterson Institute for Economics.

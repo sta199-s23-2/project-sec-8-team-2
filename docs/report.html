@@ -175,7 +175,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
   <li><a href="#single-variable-linear-regression-models" id="toc-single-variable-linear-regression-models" class="nav-link" data-scroll-target="#single-variable-linear-regression-models">Single variable linear regression models</a></li>
+  <li><a href="#two-variable-linear-regression-models" id="toc-two-variable-linear-regression-models" class="nav-link" data-scroll-target="#two-variable-linear-regression-models">Two variable linear regression models</a></li>
+  <li><a href="#three-variable-linear-regression-models" id="toc-three-variable-linear-regression-models" class="nav-link" data-scroll-target="#three-variable-linear-regression-models">Three variable linear regression models</a></li>
   </ul></li>
+  <li><a href="#works-cited" id="toc-works-cited" class="nav-link" data-scroll-target="#works-cited">Works Cited</a></li>
   </ul>
 </nav>
     </div>
@@ -201,8 +204,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="introduction-and-data" class="level1">
 <h1>Introduction and Data</h1>
-<p>To the average person, the modern billionaire is at once mysterious and completely scrutable. Few will ever come face to face with a billionaire, yet many can name the likes of Jeff Bezos and Bill Gates and a handful of facts about each. While these billionaires sit on enormous wealth, billions of people around the globe live below the poverty. Our realities of poverty amongst wealth and stark inequality thus beg the questions how are some amassing such wealth and what factors might be correlated with wealth accumulation?</p>
-<p>In this report, we assess data</p>
+<p>To the average person, the modern billionaire is at once mysterious and completely scrutable. Few will ever come face to face with a billionaire, yet many can name the likes of Jeff Bezos and Bill Gates and a facts about each. While these billionaires sit on enormous wealth, 47% of the world lives on less than $6.85 per day, and 84% lives on less than $30 per day [1]. Moreover, the past two decades have seen a steep increase in global inequality as the world’s billionaires have captured an increasing proportion of global wealth [2]. Our realities of poverty among wealth and stark inequality thus incite questions about how world leaders should engage wth billionaire wealth - was this wealth justly acquired? What is the ethicality of wealth re-distribution? Wealth accummulation also invites larger philosophical questions of how society values or devalues certain activities over others.</p>
+<p>Given these considerations, in this report, we investigate the potential sources of billionaire wealth. Specifically, we assess several the question how do wealth category, citizenship, and wealth type related to billionaire net worths in 2014?</p>
+<p><strong><em>insert hypothesis discussion by Teresa</em></strong></p>
+<p>Our data comes from the “billionaires” data set, which we obtained from the CORGIS Dataset Project. This data set was created by Ryan Whitcomb in 2016 and originally sourced from a report by Caroline Freund and Sarah Oliver of the Peterson Institute for International Economics. Freund and Oliver derived their data set from Forbes World’s Billionaires lists from 1996-2014 [3]. Forbes journalists drew from shareholder information, company financial statements, current exchange rates, and meetings with candidates to estimate billionaire net worths. From 1996-2010, the Forbes data included name, rank, citizenship, and net worth. Then, in 2011, Forbes added the source of wealth (company or sector).</p>
+<p>Freund and Oliver supplemented the Forbes data with additional variables that describe the characteristics of billionaires and their businesses. The “billionaires” data set includes information on billionaires taken at three time points: 1996, 2001, and 2014.</p>
+<p>This report focuses on four variables: wealth, wealth type, wealth category, and citizenship. Following is a brief description of each variable of interest:</p>
+<ol type="1">
+<li><p>Wealth - Called “wealth.worth.in.billions” in the data set. A continuous numeric variable that describes the wealth in billions for each observation, where one observation is one billionaire at one time point.</p></li>
+<li><p>Wealth type - Called “wealth.type” in the data set. A nominal categorical variable that describes the the type of wealth. For billionaires in 2014, there are four wealth types: founder, inherited, privatized, and self-made.</p></li>
+<li><p>Wealth category - Called “wealth.how.category” in the data set. A nominal categorical variable that describes the category of wealth. For billionaires in 2014, there are six wealth categories: energy, financial, new, non-traded, resource, and traded.</p></li>
+<li><p>Citizenship - Called “location.citizenship” in the data set. A nominal categorical variable that describes the country of citizenship of the billionaire. In this report, we group citizenship into Europe and Not Europe.</p></li>
+</ol>
+<p>The method by which information for this data set was collected priimarily raises two ethical concerns. First, when data collection involves human subjects, it is best practice to obtain the subjects’ consent. Although the Forbes journalists conducted interviews with subjects, it is unclear whether the journalists obtained the consent of all the billionaires that they collected data on. Moreover, it is unclear whether how Forbes obtained shareholder information and company financial statements. Second, this data set contains extensive personal identifying information about individuals, which may conflict for practices of de-identifying subjects and preserving subjects’ anonymity.</p>
 </section>
 <section id="methodology" class="level1">
 <h1>Methodology</h1>
@@ -274,6 +288,106 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">citizenship_euro =</span> <span class="fu">if_else</span>(location.citizenship <span class="sc">%in%</span> </span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">c</span>(<span class="st">"Switzerland"</span>, <span class="st">"Spain"</span>, <span class="st">"Germany"</span>, <span class="st">"Sweden"</span>, <span class="st">"France"</span>, <span class="st">"Italy"</span>, <span class="st">"Russia"</span>, <span class="st">"United Kingdom"</span>, <span class="st">"Turkey"</span>, <span class="st">"Netherlands"</span>, <span class="st">"Greece"</span>, <span class="st">"Ireland"</span>, <span class="st">"Ukraine"</span>, <span class="st">"Czech Republic"</span>, <span class="st">"Denmark"</span>, <span class="st">"Austria"</span>, <span class="st">"Portugal"</span>, <span class="st">"Liechtenstein"</span>, <span class="st">"Norway"</span>, <span class="st">"Belgium"</span>, <span class="st">"Poland"</span>, <span class="st">"Finland"</span>, <span class="st">"Guernsey"</span>, <span class="st">"Romania"</span>, <span class="st">"Lithuania"</span>), <span class="st">"Europe"</span>, <span class="st">"Not Europe"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>billionaires_2014 <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_wealth =</span> <span class="fu">mean</span>(wealth.worth),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">me_wealth =</span> <span class="fu">median</span>(wealth.worth),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_wealth =</span> <span class="fu">sd</span>(wealth.worth),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  m_wealth me_wealth sd_wealth na.rm
+     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;lgl&gt;
+1     3.90       2.1      5.75 TRUE </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>billionaires_2014 <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(wealth.how.industry) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_industry =</span> <span class="fu">mean</span>(wealth.worth),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">me_industry =</span> <span class="fu">median</span>(wealth.worth),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_industry =</span> <span class="fu">sd</span>(wealth.worth),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 18 × 5
+   wealth.how.industry             m_industry me_industry sd_industry na.rm
+   &lt;chr&gt;                                &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt; &lt;lgl&gt;
+ 1 0                                     1.27        1.2        0.320 TRUE 
+ 2 Constrution                           2.88        1.8        3.44  TRUE 
+ 3 Consumer                              4.05        2.4        5.81  TRUE 
+ 4 Diversified financial                 4.65        2.5        6.39  TRUE 
+ 5 Energy                                3.91        2.1        4.24  TRUE 
+ 6 Hedge funds                           3.89        2          4.57  TRUE 
+ 7 Media                                 4.72        2.45       8.10  TRUE 
+ 8 Mining and metals                     3.54        1.7        4.00  TRUE 
+ 9 Money Management                      3.13        2.05       2.94  TRUE 
+10 Non-consumer industrial               3.60        2          3.81  TRUE 
+11 Other                                 3.04        2.1        2.77  TRUE 
+12 Private equity/leveraged buyout       3.99        2.9        3.21  TRUE 
+13 Real Estate                           3.02        2          3.70  TRUE 
+14 Retail, Restaurant                    4.72        2.45       7.81  TRUE 
+15 Technology-Computer                   5.23        2.2        9.20  TRUE 
+16 Technology-Medical                    2.79        1.85       2.51  TRUE 
+17 Venture Capital                       2.22        1.9        0.847 TRUE 
+18 &lt;NA&gt;                                  1.1         1.1       NA     TRUE </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>billionaires_2014 <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(wealth.how.category) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">m_category =</span> <span class="fu">mean</span>(wealth.worth),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">me_category =</span> <span class="fu">median</span>(wealth.worth),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_category =</span> <span class="fu">sd</span>(wealth.worth),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 5
+  wealth.how.category m_category me_category sd_category na.rm
+  &lt;chr&gt;                    &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt; &lt;lgl&gt;
+1 0                         2.69        1.95        2.26 TRUE 
+2 energy                    1.9         1.9        NA    TRUE 
+3 Financial                 3.56        2.2         4.49 TRUE 
+4 New Sectors               4.31        2           7.53 TRUE 
+5 Non-Traded Sectors        4.39        2.3         7.33 TRUE 
+6 Resource Related          3.99        2.1         4.39 TRUE 
+7 Traded Sectors            3.86        2.25        5.38 TRUE 
+8 &lt;NA&gt;                      5           5          NA    TRUE </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>billionaires_2014 <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(location.citizenship) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">m_citizen =</span> <span class="fu">mean</span>(wealth.worth),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">me_citizen =</span> <span class="fu">median</span>(wealth.worth),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_citizen =</span> <span class="fu">sd</span>(wealth.worth),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 69 × 5
+   location.citizenship m_citizen me_citizen sd_citizen na.rm
+   &lt;chr&gt;                    &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;lgl&gt;
+ 1 Algeria                   3.2        3.2       NA    TRUE 
+ 2 Angola                    3.7        3.7       NA    TRUE 
+ 3 Argentina                 2.26       1.5        1.83 TRUE 
+ 4 Australia                 2.94       1.8        3.27 TRUE 
+ 5 Austria                   3.38       2.25       2.83 TRUE 
+ 6 Belgium                   2.67       1.7        1.94 TRUE 
+ 7 Brazil                    2.96       1.8        3.44 TRUE 
+ 8 Canada                    3.52       2.2        3.93 TRUE 
+ 9 Chile                     3.44       2.45       3.89 TRUE 
+10 China                     2.47       1.7        2.35 TRUE 
+# … with 59 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>billionaires_2014 <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(wealth.how.inherited) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_inherited =</span> <span class="fu">mean</span>(wealth.worth),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">me_inherited =</span> <span class="fu">median</span>(wealth.worth),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_inherited =</span> <span class="fu">sd</span>(wealth.worth),</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  wealth.how.inherited     m_inherited me_inherited sd_inherited na.rm
+  &lt;chr&gt;                          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt; &lt;lgl&gt;
+1 3rd generation                  4.08          2.7         4.03 TRUE 
+2 4th generation                  3.22          2           2.28 TRUE 
+3 5th generation or longer        3.41          2.9         2.98 TRUE 
+4 father                          4.60          2.5         6.05 TRUE 
+5 not inherited                   3.69          2           5.85 TRUE 
+6 spouse/widow                    4.94          2.8         6.45 TRUE </code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="results" class="level1">
@@ -281,41 +395,91 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <section id="single-variable-linear-regression-models" class="level2">
 <h2 class="anchored" data-anchor-id="single-variable-linear-regression-models">Single variable linear regression models</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#l label: lin-reg-wealth-category</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>wealth_category <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> wealth.how.category, <span class="at">data =</span> billionaires_2014) <span class="sc">|&gt;</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#l label: lin-reg-wealth-category</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>wealth_category <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> wealth.how.category, <span class="at">data =</span> billionaires_2014) <span class="sc">|&gt;</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span class="math display">\[\widehat{wealth} = 2.69 - 0.794 * energy - 0.862 * financial + 1.61 * new
 + 1.69 * non-traded + 1.29 * resource + 1.16 * traded\]</span></p>
 <p>AIC = 10474.78</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#l label: lin-reg-wealth-type</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>wealth_type <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> wealth.type, <span class="at">data =</span> billionaires_2014) <span class="sc">|&gt;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#l label: lin-reg-wealth-type</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>wealth_type <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> wealth.type, <span class="at">data =</span> billionaires_2014) <span class="sc">|&gt;</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span class="math display">\[\widehat{wealth} = 2.70 + 1.42 * founder + 1.72 * inherited + 1.31 * privatized + 0.609 * self-made\]</span> AIC = 10458.57</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#l label: lin-reg-citizenship</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>citizenship <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> citizenship_euro, <span class="at">data =</span> billionaires_2014) <span class="sc">|&gt;</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#l label: lin-reg-citizenship</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>citizenship <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> citizenship_euro, <span class="at">data =</span> billionaires_2014) <span class="sc">|&gt;</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span class="math display">\[\widehat{wealth} = 4.04 - 0.193 * NotEurope\]</span></p>
 <p>AIC = 10477.63</p>
-
-
 </section>
+<section id="two-variable-linear-regression-models" class="level2">
+<h2 class="anchored" data-anchor-id="two-variable-linear-regression-models">Two variable linear regression models</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>add_model_1 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> wealth.type <span class="sc">+</span> citizenship_euro, <span class="at">data =</span> billionaires_2014) <span class="sc">|&gt;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><span class="math display">\[\widehat{wealth} = 2.74 + 1.42 * founder + 1.71 * inherited + 1.29 * privatized + 0.61 * self-made - 0.0557 * citizenship_euro\]</span></p>
+<p>AIC = 10460.54</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>int_model_1 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> wealth.type <span class="sc">*</span> citizenship_euro, <span class="at">data =</span> billionaires_2014) <span class="sc">|&gt;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><span class="math display">\[\widehat{wealth} = 4.36 - 0.0224 * founder + 0.0178 * inherited - 0.208 * privatized - 2.03 * self-made - 2.12 * citizenship-not-euro + 1.84 * founder-not-euro + 2.18 * inerited-not-euro + 1.83 * privatized-not-euro + 3.33 * self-made-not-euro \]</span></p>
+<p>AIC = 10462.5</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>add_model_2 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> wealth.type <span class="sc">+</span> wealth.how.category, <span class="at">data =</span> billionaires_2014) <span class="sc">|&gt;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><span class="math display">\[\widehat{wealth} = 1.37 + 1.36 * founder + 1.92 * inherited + 1.68 * privatized + 1.09 * self-made - 1.15 * energy + 0.838 * financial + 1.68 * new-sectors + 1.36 * non-traded-sectors + 0.869 * resource + 1.08 * traded-sectors \]</span></p>
+<p>AIC = 10458.79</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>int_model_2 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.worth <span class="sc">~</span> wealth.type <span class="sc">*</span> wealth.how.category, <span class="at">data =</span> billionaires_2014) <span class="sc">|&gt;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><span class="math display">\[\widehat{wealth} = 1.98 + 0.407 * founder + 1.54 * inherited - 0.142 * privatized - 0.514 * self-made + 0.0646 * energy + 1.84 * financial + 0.582 * new-sectors + 0.872 * non-traded-sectors +2.04 * resource \]</span></p>
+<p>AIC = 10472.22</p>
+</section>
+<section id="three-variable-linear-regression-models" class="level2">
+<h2 class="anchored" data-anchor-id="three-variable-linear-regression-models">Three variable linear regression models</h2>
+</section>
+</section>
+<section id="works-cited" class="level1">
+<h1>Works Cited</h1>
+<ol type="1">
+<li><p>Joe Hasell, Max Roser, Esteban Ortiz-Ospina and Pablo Arriagada (2022) - “Poverty”. Published online at OurWorldInData.org. Retrieved from: ‘https://ourworldindata.org/poverty’ [Online Resource]</p></li>
+<li><p>Myers, J. (2021, December 10). These charts show the growing gap between the world’s richest and poorest. World Economic Forum. Retrieved March 29, 2023, from https://www.weforum.org/agenda/2021/12/global-income-inequality-gap-report-rich-poor/#:~:text=2020%20marked%20the%20steepest%20increase,1%25%20to%20over%203%25.</p></li>
+<li><p>Freund, C., &amp; Oliver, S. (2016). (working paper). The Origins of the Superrich: The Billionaire Characteristics Database. Peterson Institute for Economics.</p></li>
+</ol>
+
+
 </section>
 
 </main> <!-- /main -->
