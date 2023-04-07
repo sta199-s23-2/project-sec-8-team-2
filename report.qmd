@@ -116,6 +116,13 @@ billionaires_2014 |>
 
 ```
 
+```{r}
+#l label: proportion-pie
+
+wealth_cat_vec <- unique(billionaires_2014$wealth.how.category)
+
+```
+
 # Results
 
 ## Single variable linear regression models
