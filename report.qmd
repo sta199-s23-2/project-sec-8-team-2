@@ -117,6 +117,34 @@ billionaires_2014 |>
 ```
 
 ```{r}
+#| label: proportion_stats_tables
+
+wealth.industry_prop <- billionaires_2014 |>
+  count(wealth.how.industry) |>
+  group_by(wealth.how.industry %in% c()) |>
+  mutate(prop_how = prop.table(n)) |>
+  na.omit()
+
+wealth.category_prop <- billionaires_2014 |>
+  count(wealth.how.category) |>
+  group_by(wealth.how.category %in% c()) |>
+    mutate(prop_how = prop.table(n)) |>
+  na.omit()
+
+citizenship_prop <- billionaires_2014 |>
+  count(location.citizenship) |>
+  group_by(location.citizenship %in% c()) |>
+  mutate(prop_how = prop.table(n)) |>
+  na.omit()
+
+wealth.inherited_prop <- billionaires_2014 |>
+  count(wealth.how.inherited) |>
+  group_by(wealth.how.inherited %in% c()) |>
+  mutate(prop_how = prop.table(n)) |>
+  na.omit()
+```
+
+```{r}
 #l label: proportion-pie
 
 wealth_cat_vec <- unique(billionaires_2014$wealth.how.category)
