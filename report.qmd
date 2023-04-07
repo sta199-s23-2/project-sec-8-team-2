@@ -117,6 +117,36 @@ billionaires_2014 |>
 ```
 
 ```{r}
+#| label: box-plot-citizen
+
+billionaires_2014 |>
+ggplot(aes(x = citizenship_euro, y = wealth.worth)) + geom_boxplot() +
+labs(title = "Citizenship vs. Net Worth",
+x = "Citizenship", y = "Net Worth")
+
+```
+
+```{r}
+#| label: box-plot-cat
+
+billionaires_2014 |>
+ggplot(aes(x = wealth.how.category, y = wealth.worth)) + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + geom_boxplot() +
+labs(title = "Wealth Category vs. Net Worth",
+x = "Wealth Category", y = "Net Worth")
+
+```
+
+```{r}
+#| label: box-plot-inh 
+
+billionaires_2014 |>
+ggplot(aes(x = wealth.how.inherited, y = wealth.worth)) + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + geom_boxplot() +
+labs(title = "Type of Inheritance vs. Net Worth",
+x = "Inheritance", y = "Net Worth")
+
+```
+
+```{r}
 #| label: proportion_stats_tables
 
 wealth.industry_prop <- billionaires_2014 |>
@@ -183,6 +213,8 @@ pie(inh_prop_vec,
     labels = inh_labs,
     main = "Wealth Inherited Proportions")
 ```
+
+To evaluate our research question and to test our hypothesis, we selected a linear regression methodology since it is a common method to model relationships between dependent variables (billionaire net worth) and one or more independent variables (financial wealth, European citizenship, and inheritance). Moreover, it allows us to quantify the strength and direction of the relationship between the independent variables and the dependent variable. If the results of the linear regression analysis show a significant relationship between financial wealth, European citizenship, and inheritance and higher net worths of billionaires, then the data would support the hypothesis.
 
 # Results
 
@@ -290,6 +322,28 @@ $$\widehat{wealth} = 1.98 + 0.407 * founder + 1.54 * inherited - 0.142 * privati
 AIC = 10472.22
 
 ## Three variable linear regression models
+
+```{r}
+#| label: add-three-var
+
+add_3 <- linear_reg() |>
+set_engine("lm") |>
+fit(wealth.worth ~ wealth.how.category + citizenship_euro + wealth.type,
+data = billionaires_2014) |> glance() |>
+pull(AIC)
+
+```
+
+```{r}
+#| label: int-three-var
+
+int_model_3 <- linear_reg() |>
+set_engine("lm") |>
+fit(wealth.worth ~ wealth.how.category + citizenship_euro + wealth.type,
+data = billionaires_2014) |> glance() |>
+pull(AIC)
+```
+
 
 # Works Cited
 
