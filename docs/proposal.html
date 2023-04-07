@@ -9,7 +9,7 @@
 <meta name="author" content="TEAM 2: E. Wang, T. Chen, V. Garbelotto, S. Sengupta, K. Dong">
 <meta name="dcterms.date" content="2023-03-07">
 
-<title>STA 199 Project (title TBD)</title>
+<title>Billionaire Wealth</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -197,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">STA 199 Project (title TBD)</h1>
+<h1 class="title">Billionaire Wealth</h1>
 <p class="subtitle lead">Proposal</p>
 </div>
 
@@ -226,16 +226,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.4.0      ✔ purrr   1.0.0 
-✔ tibble  3.1.8      ✔ dplyr   1.0.10
-✔ tidyr   1.2.1      ✔ stringr 1.5.0 
-✔ readr   2.1.3      ✔ forcats 0.5.2 
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-</div>
 </div>
 <section id="data-1---billionaires" class="level1">
 <h1>Data 1 - Billionaires</h1>
@@ -266,23 +256,26 @@ Key Tags: money, rich, wealthy, people, person, billionaire</p></li>
 <ul>
 <li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p>
 <p>We would like to explore the correlation between inheritance and current net worth. For this, we would ask…</p>
-<p>Does receiving an inheritance impact the total net worth of each billionaire? Does birth place/country of citizenship have an impact on inheritance or net worth? Does wealth type impact net worth? Ultimately, did inheritance “create” the majority of the wealthiest billionaires in the world?</p></li>
+<p>Does receiving an inheritance impact the total net worth of each billionaire? Does birth place/country of citizenship have an impact on inheritance or net worth? Does wealth type impact net worth? Ultimately, did inheritance “create” the majority of the wealthiest billionaires in the world?</p>
+<p><strong>Revised research question (03/21/2023): How do wealth category, citizenship, and wealth type related to billionaire net worths in 2014?</strong></p></li>
 <li><p>Statement of why this question is important.</p>
 <p>To an extent, wealth impacts quality of life; thus, many people aspire for wealth with the hope of building a good life for themselves. The “bootstraps” theory asserts that anyone who works hard and “pulls themselves up by their bootstraps” can succeed and become wealthy. However, wealth is inextricably intertwined with factors including privilege, class, race, gender, etc., and exploring this research question is critical to helping us better understand the nature of wealth-building.</p></li>
 <li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <p>We are interested in researching the correlation between inheritance and the net worth of the billionaires listed in this data set. Specifically, we would like to investigate whether inheritance had a key role in creating the world’s richest people. We believe this to be true and that the majority of billionaires had help from an inheritance to build their current net worth.</p></li>
 =======
 <p>We are interested in researching the correlation between inheritance and the net worth of the billionaires listed in this data set. Specifically, we would like to investigate whether inheritance played a key role in creating the world’s richest people. We believe this to be true and that the majority of billionaires had help from an inheritance to build their current net worth.</p></li>
 >>>>>>> 0f347c59d2fce1515e105fdf1d2d2c642d882851
+=======
+<p>We are interested in researching the relationship between different factors and the net worth of the billionaires listed in this data set. Specifically, we would like to investigate whether inheritance, wealth category, and citizenship played a key role in creating the world’s richest people. We hypothesize that financial wealth, European citizenship, and inheritance are related to billionaires having higher net worths.</p></li>
+>>>>>>> 55a26c9bd27bf896e1a0f9a4d80d69400897ac37
 <li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p></li>
 </ul>
 <p>The subsequent variables will be considered in our analysis of the <strong>billionaires</strong> data set. Their variable types are as follows:</p>
-<p>Name (nominal categorical)</p>
-<p>Rank (discrete numeric)</p>
+<p>Wealth.how.category (nominal categorical)</p>
 <p>Location.Citizenship (nominal categorical)</p>
 <p>Wealth.Type (nominal categorical)</p>
-<p>Wealth.How.Inherited (nominal categorical)</p>
 <p>Wealth.Worth in Billions (continuous numeric)</p>
 </section>
 <section id="literature" class="level2">
@@ -300,12 +293,23 @@ Key Tags: money, rich, wealthy, people, person, billionaire</p></li>
 <p>The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth.</p>
 =======
 <p>The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth. We will specifically interrogate how significant of a role inheritance plays in wealth-building, which in an area that this article does not explicitly address.</p>
+<<<<<<< HEAD
 >>>>>>> 0f347c59d2fce1515e105fdf1d2d2c642d882851
+=======
+<p>Another potential published credible article:</p>
+<p>Sanandaji, Tino. “The international mobility of billionaires.” Small Business Economics 42 (2014): 329-338.</p>
+<p>One paragraph summary</p>
+<p>This article uses Forbes Magazine’s list of billionaires and additional information to study the migration of billionaires and their sources of income that lead to them building their wealth and how their wealth interacts with the economy of the countries they live in and move to or from.</p>
+<ul>
+<li>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</li>
+</ul>
+<p>This study gives us better context on billionaires and the interactions of their wealth and movements that focuses on a couple of factors outside of the previous article and our own data set which could explain some of our own variables.</p>
+>>>>>>> 55a26c9bd27bf896e1a0f9a4d80d69400897ac37
 </section>
 <section id="glimpse-of-data" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>billionaires <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/billionaires.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>billionaires <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/billionaires.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 2614 Columns: 22
 ── Column specification ────────────────────────────────────────────────────────
@@ -317,7 +321,7 @@ lgl  (3): wealth.how.from emerging, wealth.how.was founder, wealth.how.was p...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(billionaires)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(billionaires)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 2,614
 Columns: 22
@@ -336,7 +340,7 @@ $ `location.country code`    &lt;chr&gt; "USA", "USA", "USA", "USA", "USA", "MEX
 $ location.gdp               &lt;dbl&gt; 8.10e+12, 1.06e+13, 0.00e+00, 8.10e+12, 1.0…
 $ location.region            &lt;chr&gt; "North America", "North America", "North Am…
 $ wealth.type                &lt;chr&gt; "founder non-finance", "founder non-finance…
-$ `wealth.worth in billions` &lt;dbl&gt; 18.5, 58.7, 76.0, 15.0, 32.3, 72.0, 13.1, 3…
+$ wealth.worth               &lt;dbl&gt; 18.5, 58.7, 76.0, 15.0, 32.3, 72.0, 13.1, 3…
 $ wealth.how.category        &lt;chr&gt; "New Sectors", "New Sectors", "New Sectors"…
 $ `wealth.how.from emerging` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T…
 $ wealth.how.industry        &lt;chr&gt; "Technology-Computer", "Technology-Computer…
@@ -413,7 +417,7 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <section id="glimpse-of-data-1" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data-1">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>election <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/election.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>election <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/election.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 4216 Columns: 51
 ── Column specification ────────────────────────────────────────────────────────
@@ -424,7 +428,7 @@ dbl (32): Vote Data.Ben Carson.Number of Votes, Vote Data.Ben Carson.Percent...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(election)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(election)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 4,216
 Columns: 51
@@ -566,7 +570,7 @@ implicit-in-measures-of-student-ability.</li>
 <section id="glimpse-of-data-2" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data-2">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/school_scores.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/school_scores.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 577 Columns: 99
 ── Column specification ────────────────────────────────────────────────────────
@@ -577,7 +581,7 @@ dbl (97): Year, Total.Math, Total.Test-takers, Total.Verbal, Academic Subjec...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 577
 Columns: 99
