@@ -55,7 +55,8 @@ glimpse(billionaires)
 ```{r}
 #l label: coerce-valid-var-names
 
-names(billionaires) <- make.names(names(billionaires), unique = TRUE)
+names(billionaires) <- make.names(names(billionaires),
+                                  unique = TRUE)
 ```
 
 ```{r}
@@ -73,7 +74,13 @@ categories_tib <- enframe(categories_vec)
 
 billionaires_2014 <- billionaires_2014 |>
   mutate(citizenship_euro = if_else(location.citizenship %in% 
-                   c("Switzerland", "Spain", "Germany", "Sweden", "France", "Italy", "Russia", "United Kingdom", "Turkey", "Netherlands", "Greece", "Ireland", "Ukraine", "Czech Republic", "Denmark", "Austria", "Portugal", "Liechtenstein", "Norway", "Belgium", "Poland", "Finland", "Guernsey", "Romania", "Lithuania"), "Europe", "Not Europe"))
+                   c("Switzerland", "Spain", "Germany", "Sweden",
+                     "France", "Italy", "Russia", "United Kingdom",
+                     "Turkey", "Netherlands", "Greece", "Ireland",
+                     "Ukraine", "Czech Republic", "Denmark", "Austria",
+                     "Portugal", "Liechtenstein", "Norway", "Belgium",
+                     "Poland", "Finland", "Guernsey", "Romania", "Lithuania"),
+                   "Europe", "Not Europe"))
 ```
 
 ```{r}
@@ -372,7 +379,29 @@ fit(wealth.worth ~ wealth.how.category + citizenship_euro + wealth.type,
   pull(AIC)
 ```
 
-# Works Cited
+# Literature Review
+
+Freund, Caroline, and Sarah Oliver. "The origins of the superrich: the billionaire characteristics database. "Peterson Institute for International Economics Working Paper 16-1 (2016).
+
+**Summary:**
+
+This article directly addresses the origins of how billionaires get their wealth and what characteristics contributed to the rise of their wealth. The article specifies the age of billionaires as they reach the milestones of becoming millionaires and onwards. It looks into what economic sectors they work in and how much those sectors contributed to their wealth and compares the trends between Europe and America. They also compare personal factors like age and family inheritance.
+
+**How our research differs:**
+
+The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth. We will specifically interrogate how significant of a role inheritance plays in wealth-building, which in an area that this article does not explicitly address.
+
+**Additional published credible article:**
+
+Sanandaji, Tino. "The international mobility of billionaires." Small Business Economics 42 (2014): 329-338.
+
+**Summary:**
+
+This article uses Forbes Magazine's list of billionaires and additional information to study the migration of billionaires and their sources of income that lead to them building their wealth and how their wealth interacts with the economy of the countries they live in and move to or from.
+
+This study gives us better context on billionaires and the interactions of their wealth and movements that focuses on a couple of factors outside of the previous article and our own data set which could explain some of our own variables.
+
+# Other Works Cited
 
 1.  Joe Hasell, Max Roser, Esteban Ortiz-Ospina and Pablo Arriagada (2022) - "Poverty". Published online at OurWorldInData.org. Retrieved from: 'https://ourworldindata.org/poverty' \[Online Resource\]
 
