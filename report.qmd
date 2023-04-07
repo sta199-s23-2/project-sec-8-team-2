@@ -32,6 +32,28 @@ This report focuses on four variables: wealth, wealth type, wealth category, and
 
 The method by which information for this data set was collected priimarily raises two ethical concerns. First, when data collection involves human subjects, it is best practice to obtain the subjects' consent. Although the Forbes journalists conducted interviews with subjects, it is unclear whether the journalists obtained the consent of all the billionaires that they collected data on. Moreover, it is unclear whether how Forbes obtained shareholder information and company financial statements. Second, this data set contains extensive personal identifying information about individuals, which may conflict for practices of de-identifying subjects and preserving subjects' anonymity.
 
+# Literature Review
+
+Freund, Caroline, and Sarah Oliver. "The origins of the superrich: the billionaire characteristics database."Peterson Institute for International Economics Working Paper 16-1 (2016).
+
+**Summary:**
+
+This article directly addresses the origins of how billionaires get their wealth and what characteristics contributed to the rise of their wealth. The article specifies the age of billionaires as they reach the milestones of becoming millionaires and onwards. It looks into what economic sectors they work in and how much those sectors contributed to their wealth and compares the trends between Europe and America. They also compare personal factors like age and family inheritance.
+
+**How our research differs:**
+
+The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth. We will specifically interrogate how significant of a role inheritance plays in wealth-building, which in an area that this article does not explicitly address.
+
+**Additional published credible article:**
+
+Sanandaji, Tino. "The international mobility of billionaires." Small Business Economics 42 (2014): 329-338.
+
+**Summary:**
+
+This article uses Forbes Magazine's list of billionaires and additional information to study the migration of billionaires and their sources of income that lead to them building their wealth and how their wealth interacts with the economy of the countries they live in and move to or from.
+
+This study gives us better context on billionaires and the interactions of their wealth and movements that focuses on a couple of factors outside of the previous article and our own data set which could explain some of our own variables.
+
 # Methodology
 
 ## Housekeeping
@@ -379,29 +401,7 @@ fit(wealth.worth ~ wealth.how.category + citizenship_euro + wealth.type,
   pull(AIC)
 ```
 
-# Literature Review
-
-Freund, Caroline, and Sarah Oliver. "The origins of the superrich: the billionaire characteristics database. "Peterson Institute for International Economics Working Paper 16-1 (2016).
-
-**Summary:**
-
-This article directly addresses the origins of how billionaires get their wealth and what characteristics contributed to the rise of their wealth. The article specifies the age of billionaires as they reach the milestones of becoming millionaires and onwards. It looks into what economic sectors they work in and how much those sectors contributed to their wealth and compares the trends between Europe and America. They also compare personal factors like age and family inheritance.
-
-**How our research differs:**
-
-The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth. We will specifically interrogate how significant of a role inheritance plays in wealth-building, which in an area that this article does not explicitly address.
-
-**Additional published credible article:**
-
-Sanandaji, Tino. "The international mobility of billionaires." Small Business Economics 42 (2014): 329-338.
-
-**Summary:**
-
-This article uses Forbes Magazine's list of billionaires and additional information to study the migration of billionaires and their sources of income that lead to them building their wealth and how their wealth interacts with the economy of the countries they live in and move to or from.
-
-This study gives us better context on billionaires and the interactions of their wealth and movements that focuses on a couple of factors outside of the previous article and our own data set which could explain some of our own variables.
-
-# Other Works Cited
+# Works Cited
 
 1.  Joe Hasell, Max Roser, Esteban Ortiz-Ospina and Pablo Arriagada (2022) - "Poverty". Published online at OurWorldInData.org. Retrieved from: 'https://ourworldindata.org/poverty' \[Online Resource\]
 
