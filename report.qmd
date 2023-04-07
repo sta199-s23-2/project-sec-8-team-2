@@ -145,10 +145,43 @@ wealth.inherited_prop <- billionaires_2014 |>
 ```
 
 ```{r}
-#l label: proportion-pie
+#l label: pie-wealth-cat
 
-wealth_cat_vec <- unique(billionaires_2014$wealth.how.category)
+cat_prop_vec <- pull(wealth.category_prop, prop_how)
+cat_labs <- c("n/a", "Energy", "Financial", "New Sectors", 
+              "Non-Traded", "Resource", "Traded")
 
+pie(cat_prop_vec,
+    labels = cat_labs,
+    main = "Wealth Category Proportions")
+
+```
+
+```{r}
+#l label: pie-wealth-ind
+
+ind_prop_vec <- pull(wealth.industry_prop, prop_how)
+ind_labs <- c("n/a", "Construction", "Consumer", "Diversified Financial", 
+              "Energy", "Hedge Funds", "Media", "Mining & Metals", 
+              "Money Management", "Non-Consumer Industrial", "Other", 
+              "Private Equity", "Real Estate", "Retail/Restaurant",
+              "Tech-Computer", "Tech-Medical", "Venture Capital")
+
+pie(ind_prop_vec,
+    labels = ind_labs,
+    main = "Wealth Industry Proportions")
+```
+
+```{r}
+#l label: pie-inherited
+
+inh_prop_vec <- pull(wealth.inherited_prop, prop_how)
+inh_labs <- c("3rd gen", "4th gen", "5th gen", "father", "not inherited",
+              "spouse/widow")
+
+pie(inh_prop_vec,
+    labels = inh_labs,
+    main = "Wealth Inherited Proportions")
 ```
 
 # Results
