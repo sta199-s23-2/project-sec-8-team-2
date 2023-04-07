@@ -297,7 +297,9 @@ wealth_type <- linear_reg() |>
 
 ```
 
-$$\widehat{wealth} = 2.70 + 1.42 * founder + 1.72 * inherited + 1.31 * privatized + 0.609 * self-made$$ AIC = 10458.57
+$$\widehat{wealth} = 2.70 + 1.42 * founder + 1.72 * inherited + 1.31 * privatized + 0.609 * self-made$$
+
+AIC = 10458.57
 
 ```{r}
 #l label: lin-reg-citizenship
@@ -313,6 +315,8 @@ citizenship <- linear_reg() |>
 $$\widehat{wealth} = 4.04 - 0.193 * NotEurope$$
 
 AIC = 10477.63
+
+The second model, lin-reg-wealth-type, is the best fit model when looking at a single variable linear regression. This model indicates the relationship between net worth and wealth type and we know it is the best fit model for our data because the AIC value is the lowest of the 3 models. Looking at how the billionaire's accumulated their wealth or what their citizenship is shows a less accurate picture of our data set.
 
 ## Two variable linear regression models
 
@@ -376,6 +380,10 @@ $$\widehat{wealth} = 1.98 + 0.407 * founder + 1.54 * inherited - 0.142 * privati
 
 AIC = 10472.22
 
+For our two variable linear regression models, the additive model "wealth.type + wealth.how.category" is the best fit for our data set. It's AIC is the lowest of the other additive model, as well as the two interaction models.
+
+It is much lower than its counterpart interaction model of "wealth.type + wealth.how.category". This indicates that it is better for us to model one independent variable does not depend on the value of any other independent variable, than it is for us to model the effect of one variable depending on another variable.
+
 ## Three variable linear regression models
 
 ```{r}
@@ -390,16 +398,25 @@ fit(wealth.worth ~ wealth.how.category + citizenship_euro + wealth.type,
 
 ```
 
+AIC = 10460.77
+
 ```{r}
 #| label: int-three-var
 
 int_model_3 <- linear_reg() |>
 set_engine("lm") |>
-fit(wealth.worth ~ wealth.how.category + citizenship_euro + wealth.type,
+fit(wealth.worth ~ wealth.how.category * citizenship_euro * wealth.type,
     data = billionaires_2014) |>
   glance() |>
   pull(AIC)
 ```
+
+AIC = 10479.69
+
+Our three variable linear regression models demonstrate that it is a better fit for our data set to use an additive model when comparing "wealth.how.category + citizenship_euro + wealth.type". The value of the AIC of the interaction model is higher than that of the additive.
+
+
+Overall the linear regression model with the lowest AIC, therefore the best fit for our data & answering our research question is the single variable linear regression which studied the relationship between wealth.worth and wealth.type of the billionaires.
 
 # Works Cited
 
