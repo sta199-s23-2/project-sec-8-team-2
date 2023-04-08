@@ -14,7 +14,7 @@ To the average person, the modern billionaire is at once mysterious and complete
 
 Given these considerations, in this report, we investigate the potential sources of billionaire wealth. Specifically, we assess the question of how do wealth category, citizenship, and wealth type relate to billionaire net worths in 2014?
 
-We hypothesize that financial wealth, European citizenship, and inheritance are related to billionaires having higher net worths. To begin with, our team hypothesizes that financial wealth relates to billionaires with higher net worths given that banking and finance have served the largest primary industries for up to 20.4% of the total billionaire population, according to the Billionaire Census 2022 (Goldberg 2022). Primary industries suggest where the billionaires devoted most of their time and by which they created most of their wealth. Second, we hypothesize that inheritance also associates with higher net worths of billionaires due to the link between increased inheritance flows and increased wealth distribution identified by several studies (Elinder 2018). Finally, we associate European citizenship with higher net worths of billionaires as the third component of the hypothesis, as Europe's billionaire wealth has been growing the fastest, up 22% year-over-year in 2021 (Avery 2022).
+We hypothesize that financial wealth, European citizenship, and inheritance are related to billionaires having higher net worths. To begin with, our team hypothesizes that financial wealth relates to billionaires with higher net worths given that banking and finance have served the largest primary industries for up to 20.4% of the total billionaire population, according to the Billionaire Census 2022 \[4\]. Primary industries suggest where the billionaires devoted most of their time and by which they created most of their wealth. Second, we hypothesize that inheritance also associates with higher net worths of billionaires due to the link between increased inheritance flows and increased wealth distribution identified by several studies \[5\]. Finally, we associate European citizenship with higher net worths of billionaires as the third component of the hypothesis, as Europe's billionaire wealth has been growing the fastest, up 22% year-over-year in 2021 \[6\].
 
 Our data comes from the "billionaires" data set, which we obtained from the CORGIS Dataset Project. This data set was created by Ryan Whitcomb in 2016 and originally sourced from a report by Caroline Freund and Sarah Oliver of the Peterson Institute for International Economics. Freund and Oliver derived their data set from Forbes World's Billionaires lists from 1996-2014 \[3\]. Forbes journalists drew from shareholder information, company financial statements, current exchange rates, and meetings with candidates to estimate billionaire net worths. From 1996-2010, the Forbes data included name, rank, citizenship, and net worth. Then, in 2011, Forbes added the source of wealth (company or sector).
 
@@ -331,8 +331,12 @@ add_model_1 <- linear_reg() |>
   pull(AIC)
 ```
 
+<<<<<<< HEAD
 $$\widehat{wealth} = 2.74 + 1.42 * founder + 1.71 * inherited + 1.29 * privatized + 0.61 * self-made - 0.0557 * citizenship_euro$$ 
 AIC = 10460.54
+=======
+$$\widehat{wealth} = 2.74 + 1.42 * founder + 1.71 * inherited + 1.29 * privatized + 0.61 * self-made - 0.0557 * citizenship_euro$$ AIC = 10460.54
+>>>>>>> 17a2e8ddb716e052ae5592222ec0e26851847a41
 
 ```{r}
 #| label: int-wealth-type-and-citizenship
@@ -345,8 +349,12 @@ int_model_1 <- linear_reg() |>
   pull(AIC)
 ```
 
+<<<<<<< HEAD
 $$\widehat{wealth} = 4.36 - 0.0224 * founder + 0.0178 * inherited - 0.208 * privatized - 2.03 * self-made - 2.12 * citizenship-not-euro + 1.84 * founder-not-euro + 2.18 * inerited-not-euro + 1.83 * privatized-not-euro + 3.33 * self-made-not-euro $$ 
 AIC = 10462.5
+=======
+$$\widehat{wealth} = 4.36 - 0.0224 * founder + 0.0178 * inherited - 0.208 * privatized - 2.03 * self-made - 2.12 * citizenship-not-euro + 1.84 * founder-not-euro + 2.18 * inerited-not-euro + 1.83 * privatized-not-euro + 3.33 * self-made-not-euro $$ AIC = 10462.5
+>>>>>>> 17a2e8ddb716e052ae5592222ec0e26851847a41
 
 ```{r}
 #| label: add-wealth-type-and-category
@@ -413,12 +421,15 @@ AIC = 10479.69
 
 In the one variable linear regression models, the wealth type model had the lowest AIC, indicating that in a one variable linear regression, wealth type is the best fit for modeling billionaire wealth. 
 
+<<<<<<< HEAD
 In the two variable linear regression models, the additive wealth type and citizenship model had the lowest AIC, indicating that in a two variable linear regression, an additive wealth type and citizenship model is the best fit for modeling billionaire wealth. 
 
 Similarly, in the three variable linear regression models, the additive model had the lowest AIC, indicating that in a three variable linear regression, an additive model is the best fit for modeling billionaire wealth. 
 
 Overall, our two and three variable linear regression models indicate that in modeling billionaire wealth, the additive model is a better fit than the interaction model. In all the two and three variable models, the additive models had lower AIC values than their corresponding interaction models, indicating better fit. 
 
+=======
+>>>>>>> 17a2e8ddb716e052ae5592222ec0e26851847a41
 Overall the linear regression model with the lowest AIC, therefore the best fit for our data & answering our research question is the single variable linear regression which studied the relationship between wealth.worth and wealth.type of the billionaires.
 
 # Conclusion
@@ -441,8 +452,8 @@ Overall, our results show us that we were wrong to hypothesize that **financial*
 
 3.  Freund, C., & Oliver, S. (2016). (working paper). The Origins of the Superrich: The Billionaire Characteristics Database. Peterson Institute for Economics.
 
-4.  Elinder, Mikael, et al. "Inheritance and Wealth Inequality: Evidence from Population Registers." SSRN Electronic Journal, 2016, https://doi.org/10.2139/ssrn.2757949.
+4.  Goldberg, Robyn. "Billionaire Census." Altrata, 1 Aug. 2022, https://altrata.com/reports/billionaire-census-2022.
 
-5.  Goldberg, Robyn. "Billionaire Census." Altrata, 1 Aug. 2022, https://altrata.com/reports/billionaire-census-2022.
+5.  Elinder, Mikael, et al. "Inheritance and Wealth Inequality: Evidence from Population Registers." SSRN Electronic Journal, 2016, https://doi.org/10.2139/ssrn.2757949.
 
 6.  Avery, Koop "Mapped: The World's Billionaire Population, by Country." Visual Capitalist, 24 Sept. 2022, https://www.visualcapitalist.com/mapped-the-worlds-billionaire-population-by-country/
