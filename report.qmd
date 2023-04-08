@@ -3,7 +3,7 @@ title: "Billionaire Wealth"
 subtitle: "Report"
 format: html
 editor: visual
-author: "Emily W., Valentina G., Teresa C., Karen D., & Sneha S."
+authors: "Emily W., Valentina G., Teresa C., Karen D., & Sneha S."
 execute:
   echo: true
 ---
@@ -332,7 +332,6 @@ add_model_1 <- linear_reg() |>
 ```
 
 $$\widehat{wealth} = 2.74 + 1.42 * founder + 1.71 * inherited + 1.29 * privatized + 0.61 * self-made - 0.0557 * citizenship_euro$$
-
 AIC = 10460.54
 
 ```{r}
@@ -418,7 +417,7 @@ Our three variable linear regression models demonstrate that it is a better fit 
 
 Overall the linear regression model with the lowest AIC, therefore the best fit for our data & answering our research question is the single variable linear regression which studied the relationship between wealth.worth and wealth.type of the billionaires.
 
-# Results  (Provide only the main results from your analysis)
+# Conclusion
 
 Throughout this project, we set out to determine how wealth category, citizenship, and wealth type relate to billionaire net worths in the year of 2014. We hypothesized that **financial** wealth, **European** citizenship, and inheritance are linked to billionaires with higher net worths. More specifically, these variables could be indicators of a billionaire possessing an overall higher net worth.
 
@@ -437,9 +436,9 @@ Finally, we associate European citizenship with higher net worths of billionaire
 
 # Works Cited
 
-1.  Joe Hasell, Max Roser, Esteban Ortiz-Ospina and Pablo Arriagada (2022) - "Poverty". Published online at OurWorldInData.org. Retrieved from: 'https://ourworldindata.org/poverty' \[Online Resource\]
+1.  Joe Hasell, Max Roser, Esteban Ortiz-Ospina and Pablo Arriagada (2022) - "Poverty". Published online at OurWorldInData.org. Retrieved from: https://ourworldindata.org/poverty
 
-2.  Myers, J. (2021, December 10). These charts show the growing gap between the world's richest and poorest. World Economic Forum. Retrieved March 29, 2023, from https://www.weforum.org/agenda/2021/12/global-income-inequality-gap-report-rich-poor/#:\~:text=2020%20marked%20the%20steepest%20increase,1%25%20to%20over%203%25.
+2.  Myers, J. (2021, December 10). These charts show the growing gap between the world's richest and poorest. World Economic Forum. Retrieved March 29, 2023, from https://www.weforum.org/agenda/2021/12/global-income-inequality-gap-report-rich-poor/
 
 3.  Freund, C., & Oliver, S. (2016). (working paper). The Origins of the Superrich: The Billionaire Characteristics Database. Peterson Institute for Economics.
 
@@ -447,4 +446,4 @@ Finally, we associate European citizenship with higher net worths of billionaire
 
 5.  Goldberg, Robyn. "Billionaire Census." Altrata, 1 Aug. 2022, https://altrata.com/reports/billionaire-census-2022.
 
-6.  Avery, Koop "Mapped: The World's Billionaire Population, by Country." Visual Capitalist, 24 Sept. 2022, https://www.visualcapitalist.com/mapped-the-worlds-billionaire-population-by-country/#:\~:text=North%20America%20is%20home%20to,net%20worth%20of%20%244.45%20trillion.&text=In%20regional%20terms%2C%20Europe's%20billionaire,%2Dover%2Dyear%20in%202021.
+6.  Avery, Koop "Mapped: The World's Billionaire Population, by Country." Visual Capitalist, 24 Sept. 2022, https://www.visualcapitalist.com/mapped-the-worlds-billionaire-population-by-country/
