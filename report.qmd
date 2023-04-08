@@ -421,16 +421,11 @@ AIC = 10479.69
 
 In the one variable linear regression models, the wealth type model had the lowest AIC, indicating that in a one variable linear regression, wealth type is the best fit for modeling billionaire wealth. 
 
-<<<<<<< HEAD
 In the two variable linear regression models, the additive wealth type and citizenship model had the lowest AIC, indicating that in a two variable linear regression, an additive wealth type and citizenship model is the best fit for modeling billionaire wealth. 
 
 Similarly, in the three variable linear regression models, the additive model had the lowest AIC, indicating that in a three variable linear regression, an additive model is the best fit for modeling billionaire wealth. 
 
 Overall, our two and three variable linear regression models indicate that in modeling billionaire wealth, the additive model is a better fit than the interaction model. In all the two and three variable models, the additive models had lower AIC values than their corresponding interaction models, indicating better fit. 
-
-=======
->>>>>>> 17a2e8ddb716e052ae5592222ec0e26851847a41
-Overall the linear regression model with the lowest AIC, therefore the best fit for our data & answering our research question is the single variable linear regression which studied the relationship between wealth.worth and wealth.type of the billionaires.
 
 # Conclusion
 
