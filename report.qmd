@@ -331,7 +331,7 @@ add_model_1 <- linear_reg() |>
   pull(AIC)
 ```
 
-$$\widehat{wealth} = 2.74 + 1.42 * founder + 1.71 * inherited + 1.29 * privatized + 0.61 * self-made - 0.0557 * citizenship_euro$$
+$$\widehat{wealth} = 2.74 + 1.42 * founder + 1.71 * inherited + 1.29 * privatized + 0.61 * self-made - 0.0557 * citizenship_euro$$ 
 AIC = 10460.54
 
 ```{r}
@@ -345,7 +345,7 @@ int_model_1 <- linear_reg() |>
   pull(AIC)
 ```
 
-$$\widehat{wealth} = 4.36 - 0.0224 * founder + 0.0178 * inherited - 0.208 * privatized - 2.03 * self-made - 2.12 * citizenship-not-euro + 1.84 * founder-not-euro + 2.18 * inerited-not-euro + 1.83 * privatized-not-euro + 3.33 * self-made-not-euro $$
+$$\widehat{wealth} = 4.36 - 0.0224 * founder + 0.0178 * inherited - 0.208 * privatized - 2.03 * self-made - 2.12 * citizenship-not-euro + 1.84 * founder-not-euro + 2.18 * inerited-not-euro + 1.83 * privatized-not-euro + 3.33 * self-made-not-euro $$ 
 AIC = 10462.5
 
 ```{r}
@@ -411,8 +411,13 @@ fit(wealth.worth ~ wealth.how.category * citizenship_euro * wealth.type,
 
 AIC = 10479.69
 
-Our three variable linear regression models demonstrate that it is a better fit for our data set to use an additive model when comparing "wealth.how.category + citizenship_euro + wealth.type". The value of the AIC of the interaction model is higher than that of the additive.
+In the one variable linear regression models, the wealth type model had the lowest AIC, indicating that in a one variable linear regression, wealth type is the best fit for modeling billionaire wealth. 
 
+In the two variable linear regression models, the additive wealth type and citizenship model had the lowest AIC, indicating that in a two variable linear regression, an additive wealth type and citizenship model is the best fit for modeling billionaire wealth. 
+
+Similarly, in the three variable linear regression models, the additive model had the lowest AIC, indicating that in a three variable linear regression, an additive model is the best fit for modeling billionaire wealth. 
+
+Overall, our two and three variable linear regression models indicate that in modeling billionaire wealth, the additive model is a better fit than the interaction model. In all the two and three variable models, the additive models had lower AIC values than their corresponding interaction models, indicating better fit. 
 
 Overall the linear regression model with the lowest AIC, therefore the best fit for our data & answering our research question is the single variable linear regression which studied the relationship between wealth.worth and wealth.type of the billionaires.
 
