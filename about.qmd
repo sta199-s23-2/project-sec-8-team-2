@@ -4,10 +4,10 @@ format: html
 editor: visual
 ---
 
-This project was developed by **\[team name\]** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members. This project was developed by **Team 2** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members.
+This project was developed by **Team 2** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members.
 
 -   Emily Wang: Emily is a first-year planning on pursuing a major in Chemistry and a minor in Asian American Diaspora Studies.
--   Teresa Chen: Teresa is a freshman majoring in political science.
--   Valentina Garbelotto: Valentina is a first-year planning on pursuing a double major in Political Science and Public Policy.
+-   Teresa Chen: Teresa is a freshman majoring in Political Science.
+-   Valentina Garbelotto: Valentina is a first-year from Argentina planning on double majoring in Political Science and Public Policy.
 -   Sneha Sengupta: Sneha is a freshman majoring in Biology with a Math minor.
 -   Karen Dong: Karen is a freshman majoring in Economics and possibly Statistics.
