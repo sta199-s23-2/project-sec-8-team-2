@@ -58,6 +58,8 @@ This study gives us better context on billionaires and the interactions of their
 
 ## Housekeeping
 
+First, we load and glimpse our data:
+
 ```{r}
 #| label: load-pkgs
 
@@ -74,6 +76,8 @@ billionaires <- read_csv("data/billionaires.csv")
 glimpse(billionaires)
 ```
 
+Next, we wrangle the data. 
+1. We coerce the variables to have valid names for our analysis. 
 ```{r}
 #l label: coerce-valid-var-names
 
@@ -81,6 +85,7 @@ names(billionaires) <- make.names(names(billionaires),
                                   unique = TRUE)
 ```
 
+2. We filter the data to only include data from 2014. 
 ```{r}
 #l label: 2014-only
 
@@ -88,6 +93,7 @@ billionaires_2014 <- billionaires |>
   filter(year == "2014")
 ```
 
+3. We create a new citizenship variable that describes whether or not the billionaire holds European citizenship. 
 ```{r}
 #l label: mutate-citizenship
 
@@ -104,6 +110,7 @@ billionaires_2014 <- billionaires_2014 |>
                      "Poland", "Finland", "Guernsey", "Romania", "Lithuania"),
                    "Europe", "Not Europe"))
 ```
+
 
 ```{r}
 #| label: summary_stats
@@ -421,7 +428,9 @@ add_model_3 <- linear_reg() |>
 
 ```
 
-$$\widehat{wealth} = 2.8 - 0.159 * citizenship - 0.744 * energy + 0.881 * financial + 1.64 * new-sectors + 1.69 * non-traded-sectors + 1.27 * resource + 1.15 * traded-sectors $$
+$$\widehat{wealth} = 2.8 - 0.159 * citizenship - 0.744 * energy + \\
+0.881 * financial + 1.64 * new-sectors + 1.69 * non-traded-sectors + \\
+1.27 * resource + 1.15 * traded-sectors $$
 
 AIC = 10476.53
 
@@ -436,7 +445,11 @@ int_model_3 <- linear_reg() |>
   pull(AIC)
 ```
 
-$$\widehat{wealth} = 4.61 - 2.79 * citizenship_euro - 0.0838 * energy - 1.76 * financial - 0.688 * new-sectors - 0.349 * non-traded-sectors - 0.145 * resource - 0.145 * traded-sectors + 3.67 * europe-financial + 3.25 * europe-new-sectors + 2.99 * europe-non-traded + 1.96 * eorupe-resource + 1.81 * europe-traded $$
+$$\widehat{wealth} = 4.61 - 2.79 * citizenship_euro - 0.0838 * energy \\
+- 1.76 * financial - 0.688 * new-sectors - 0.349 * non-traded-sectors \\
+- 0.145 * resource - 0.145 * traded-sectors + 3.67 * europe-financial \\
++ 3.25 * europe-new-sectors + 2.99 * europe-non-traded + \\
+1.96 * europe-resource + 1.81 * europe-traded $$
 
 AIC = 10478.38
 
