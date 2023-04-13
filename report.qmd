@@ -62,6 +62,8 @@ First, we load and glimpse our data:
 
 ```{r}
 #| label: load-pkgs
+#| warning: false
+#| message: false
 
 library(tidyverse)
 library(tidymodels)
@@ -111,7 +113,7 @@ billionaires_2014 <- billionaires_2014 |>
                    "Europe", "Not Europe"))
 ```
 
-
+Next, we compute mean, median, and standard deviation of net worth for each potential outcome for our variables of interest.
 ```{r}
 #| label: summary_stats
 
@@ -151,6 +153,7 @@ billionaires_2014 |>
 
 ```
 
+Using the above data, we create box plots that visualize how each variable affects the distribution of billionaire net worths. 
 ```{r}
 #| label: box-plot-citizen
 
@@ -200,6 +203,7 @@ ggplot(
 
 ```
 
+Additionally, for each of our variables of interest, we compute the proportion of billionaires associated with each outcome. 
 ```{r}
 #| label: proportion_stats_tables
 
@@ -228,6 +232,7 @@ wealth.inherited_prop <- billionaires_2014 |>
   na.omit()
 ```
 
+Using the above data, we create pie chart visualizations. 
 ```{r}
 #l label: pie-wealth-cat
 
