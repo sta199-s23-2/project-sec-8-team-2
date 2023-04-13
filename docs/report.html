@@ -122,7 +122,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -556,9 +555,6 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
 <span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math display">\[\widehat{wealth} = 2.69 - 0.794 * energy - 0.862 * financial + 1.61 * new \\
-+ 1.69 * non-traded \\
-+ 1.29 * resource + 1.16 * traded\]</span></p>
 <p>AIC = 10474.78</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#l label: lin-reg-wealth-type</span></span>
@@ -570,8 +566,6 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math display">\[\widehat{wealth} = 2.70 + 1.42 * founder + 1.72 * inherited \\
-+ 1.31 * privatized + 0.609 * self-made\]</span></p>
 <p>AIC = 10458.57</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#l label: lin-reg-citizenship</span></span>
@@ -583,7 +577,6 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
 <span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math display">\[\widehat{wealth} = 4.04 - 0.193 * NotEurope\]</span></p>
 <p>AIC = 10477.63</p>
 <p>The second model, lin-reg-wealth-type, is the best fit model when looking at a single variable linear regression. This model indicates the relationship between net worth and wealth type and we know it is the best fit model for our data because the AIC value is the lowest of the 3 models. Looking at how the billionaire’s accumulated their wealth or what their citizenship is shows a less accurate picture of our data set.</p>
 </section>
@@ -597,12 +590,7 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math display">\[\widehat{wealth} = 2.74 + 1.42 * founder + 1.71 * inherited \\
-+ 1.29 * privatized + 0.61 * self-made - 0.0557 * citizenship_euro\]</span> AIC = 10460.54</p>
-<p><span class="math display">\[\widehat{wealth} = 2.74 + 1.42 * founder + 1.71 * inherited \\
-+ 1.29 * privatized + 0.61 * self-made - 0.0557 * citizenship_euro\]</span> AIC = 10460.54</p>
-<p><span class="math display">\[\widehat{wealth} = 2.74 + 1.42 * founder + 1.71 * inherited
-+ 1.29 * privatized + 0.61 * self-made - 0.0557 * citizenship_euro\]</span> AIC = 10460.54</p>
+<p>AIC = 10460.54</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>int_model_1 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
@@ -611,18 +599,8 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math display">\[\widehat{wealth} = 4.36 - 0.0224 * founder + 0.0178 * inherited \\
-- 0.208 * privatized - 2.03 * self-made - 2.12 * citizenship-not-euro \\
-+ 1.84 * founder-not-euro + 2.18 * inerited-not-euro \\
-+ 1.83 * privatized-not-euro + 3.33 * self-made-not-euro \]</span> AIC = 10462.5</p>
-<p><span class="math display">\[\widehat{wealth} = 4.36 - 0.0224 * founder + 0.0178 * inherited \\
-- 0.208 * privatized - 2.03 * self-made - 2.12 * citizenship-not-euro \\
-+ 1.84 * founder-not-euro + 2.18 * inerited-not-euro \\
-+ 1.83 * privatized-not-euro + 3.33 * self-made-not-euro \]</span> AIC = 10462.5</p>
-<p><span class="math display">\[\widehat{wealth} = 4.36 - 0.0224 * founder + 0.0178 * inherited
-- 0.208 * privatized - 2.03 * self-made - 2.12 * citizenship-not-euro
-+ 1.84 * founder-not-euro + 2.18 * inerited-not-euro
-+ 1.83 * privatized-not-euro + 3.33 * self-made-not-euro \]</span> AIC = 10462.5</p>
+<p>AIC = 10462.5</p>
+<p>AIC = 10462.5</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>add_model_2 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
@@ -631,10 +609,6 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math display">\[\widehat{wealth} = 1.37 + 1.36 * founder + 1.92 * inherited \\
-+ 1.68 * privatized + 1.09 * self-made - 1.15 * energy + 0.838 * financial \\
-+ 1.68 * new-sectors + 1.36 * non-traded-sectors + 0.869 * resource \\
-+ 1.08 * traded-sectors \]</span></p>
 <p>AIC = 10458.79</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>int_model_2 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
@@ -644,10 +618,6 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
 <span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math display">\[\widehat{wealth} = 1.98 + 0.407 * founder + 1.54 * inherited \\
-- 0.142 * privatized - 0.514 * self-made + 0.0646 * energy \\
-+ 1.84 * financial + 0.582 * new-sectors + 0.872 * non-traded-sectors \\
-+ 2.04 * resource \]</span></p>
 <p>AIC = 10472.22</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>add_model_3 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
@@ -657,9 +627,6 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math display">\[\widehat{wealth} = 2.8 - 0.159 * citizenship - 0.744 * energy + \\
-0.881 * financial + 1.64 * new-sectors + 1.69 * non-traded-sectors + \\
-1.27 * resource + 1.15 * traded-sectors \]</span></p>
 <p>AIC = 10476.53</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>int_model_3 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
@@ -669,11 +636,6 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
 <span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math display">\[\widehat{wealth} = 4.61 - 2.79 * citizenship_euro - 0.0838 * energy \\
-- 1.76 * financial - 0.688 * new-sectors - 0.349 * non-traded-sectors \\
-- 0.145 * resource - 0.145 * traded-sectors + 3.67 * europe-financial \\
-+ 3.25 * europe-new-sectors + 2.99 * europe-non-traded + \\
-1.96 * europe-resource + 1.81 * europe-traded \]</span></p>
 <p>AIC = 10478.38</p>
 <p>For our two variable linear regression models, the additive model “wealth.type + wealth.how.category” is the best fit for our data set. Its AIC is the lowest of the other additive model, as well as the two interaction models.</p>
 </section>
