@@ -243,6 +243,7 @@ cat_labs <- c("n/a", "Energy", "Financial", "New Sectors",
 
 pie(cat_prop_vec,
     labels = cat_labs,
+    radius = 1.0,
     main = "Wealth Category Proportions")
 
 ```
@@ -258,6 +259,7 @@ ind_labs <- c("n/a", "Construction", "Consumer", "Diversified Financial",
               "Tech-Computer", "Tech-Medical", "Venture Capital")
 
 pie(ind_prop_vec,
+    radius = 1.0,
     labels = ind_labs,
     main = "Wealth Industry Proportions")
 ```
@@ -270,6 +272,7 @@ inh_labs <- c("3rd gen", "4th gen", "5th gen", "father", "not inherited",
               "spouse/widow")
 
 pie(inh_prop_vec,
+    radius = 1.0,
     labels = inh_labs,
     main = "Wealth Inherited Proportions")
 ```
@@ -458,9 +461,7 @@ $$\widehat{wealth} = 4.61 - 2.79 * citizenship_euro - 0.0838 * energy \\
 
 AIC = 10478.38
 
-For our two variable linear regression models, the additive model "wealth.type + wealth.how.category" is the best fit for our data set. It's AIC is the lowest of the other additive model, as well as the two interaction models.
-
-It is much lower than its counterpart interaction model of "wealth.type + wealth.how.category". This indicates that it is better for us to model one independent variable does not depend on the value of any other independent variable, than it is for us to model the effect of one variable depending on another variable.
+For our two variable linear regression models, the additive model "wealth.type + wealth.how.category" is the best fit for our data set. Its AIC is the lowest of the other additive model, as well as the two interaction models.
 
 ## Three variable linear regression models
 
@@ -505,11 +506,9 @@ Throughout this project, we set out to determine how wealth category, citizenshi
 
 To test our hypothesis, we began by grouping our data set by billionaires possessing citizenship in a European country and those with Non-European citizenship. We then calculated the summary statistics (mean, median, standard deviation) of the variable wealth.worth and then again but by filtering wealth.worth through different variables.
 
-The mean of the billionaires net worth is 3.9 billion. The median 2.1 billion and the standard deviation 5.75 billion. By grouping it by wealth.how.industry, we observed the drastic differences in total net worth, depending on the industry they accumulated wealth through. Technology (Computer) producing the richest billionaires with a mean of 5.23 billion. With wealth.how.category, we notice that wealth was accumulated the most on average in Non-Traded Sectors. With the variable citizenship_euro, we came to the conclusion that on average the wealthier billionaires come from a European country, with their net worth coming in at 4.04 billion, compared to the Non-European 3.85 billion. Wealth.type indicates to us that those who inherited their wealth have on average a higher net worth. We then created box plots and pie charts to visually graph these results.
+The mean of the billionaires net worth is 3.9 billion dollars. The median 2.1 billion dollars and the standard deviation 5.75 billion dollars. By grouping it by wealth.how.industry, we observed the drastic differences in total net worth, depending on the industry they accumulated wealth through. Technology (Computer) producing the richest billionaires with a mean of 5.23 billion dollars. With wealth.how.category, we notice that wealth was accumulated the most on average in Non-Traded Sectors. With the variable citizenship_euro, we came to the conclusion that on average the wealthier billionaires come from a European country, with their net worth coming in at 4.04 billion dollars, compared to the Non-Europeans at 3.85 billion dollars. Wealth.type indicates to us that those who inherited their wealth have on average a higher net worth. We then created box plots and pie charts to visually graph these results.
 
-Lastly, we created linear regression models, both additive and interaction based, and we found that...
-
-Overall, our results show us that we were wrong to hypothesize that **financial** wealth relates to billionaires with higher net worths given that banking and finance have served the largest primary industries for up to 20.4% of the total billionaire population. As on average, the wealthiest billionaires are a product of an inheritance. Therefore, we were right in stating that inheritance is associated with a higher net worth. We were also correct in associating European citizenship with higher net worths.
+Lastly, we created linear regression models, both additive and interaction. The one variable wealth type linear regression model yielded the lowest AIC, indicating that wealth type is the best out of our variables of interest for modeling billionaire wealth. Considering that financial wealth accounted for a large proportion of the billionaires in the data set, our results provide evidence that financial wealth may have a relationship with billionaire status. It is important to note, however, that the AIC's for all of these models were relatively similar and the difference may not be significant enough to consider one model as definitively better than the others. We find that one average, the wealthiest billionaires have derived wealth from inheritance. Therefore, our study provides evidence that inheritance is associated with a higher net worth. Our study also supports our hypothesis that European citizenship is associated with higher net worths.
 
 # Works Cited
 
