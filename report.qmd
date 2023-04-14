@@ -203,7 +203,21 @@ ggplot(
 
 ```
 
-6. Additionally, for each of our variables of interest, we compute the proportion of billionaires associated with each outcome. 
+6. We also created a box plot to visualize the difference in net worth between billionaires who did and did not inherit money. 
+```{r}
+#| label: scatter_inherit
+
+billionaires_2014 |>
+  mutate(Inheritance = if_else(wealth.type %in% c("inherited"),
+                               "Inherited", "Other")) |>
+  ggplot(aes(x = Inheritance, y = wealth.worth)) +
+  geom_boxplot() +
+  labs(title = "Net Worth vs Whether the Billionaire Received Inheritance",
+  x = "Inheritance",
+  y = "Net Worth")
+```
+
+7. Additionally, for each of our variables of interest, we compute the proportion of billionaires associated with each outcome. 
 ```{r}
 #| label: proportion_stats_tables
 
@@ -232,7 +246,7 @@ wealth.inherited_prop <- billionaires_2014 |>
   na.omit()
 ```
 
-7. Using the above data, we create pie chart visualizations. 
+8. Using the above data, we create pie chart visualizations. 
 ```{r}
 #l label: pie-wealth-cat
 
