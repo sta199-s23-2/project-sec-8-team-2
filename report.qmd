@@ -73,6 +73,7 @@ library(ggrepel)
 
 ```{r}
 #| label: load-billionaires-data
+#| message: false
 
 billionaires <- read_csv("data/billionaires.csv")
 
