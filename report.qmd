@@ -113,7 +113,7 @@ billionaires_2014 <- billionaires_2014 |>
                    "Europe", "Not Europe"))
 ```
 
-Next, we compute mean, median, and standard deviation of net worth for each potential outcome for our variables of interest.
+4. Next, we compute mean, median, and standard deviation of net worth for each potential outcome for our variables of interest.
 ```{r}
 #| label: summary_stats
 
@@ -153,7 +153,7 @@ billionaires_2014 |>
 
 ```
 
-Using the above data, we create box plots that visualize how each variable affects the distribution of billionaire net worths. 
+5. Using the above data, we create box plots that visualize how each variable affects the distribution of billionaire net worths. 
 ```{r}
 #| label: box-plot-citizen
 
@@ -175,7 +175,7 @@ ggplot(
 billionaires_2014 |>
 ggplot(
   aes(x = wealth.how.category,
-      y = wealth.worth)
+      y = wealth.worth), 
   ) +
   theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1)) +
@@ -203,7 +203,7 @@ ggplot(
 
 ```
 
-Additionally, for each of our variables of interest, we compute the proportion of billionaires associated with each outcome. 
+6. Additionally, for each of our variables of interest, we compute the proportion of billionaires associated with each outcome. 
 ```{r}
 #| label: proportion_stats_tables
 
@@ -232,7 +232,7 @@ wealth.inherited_prop <- billionaires_2014 |>
   na.omit()
 ```
 
-Using the above data, we create pie chart visualizations. 
+7. Using the above data, we create pie chart visualizations. 
 ```{r}
 #l label: pie-wealth-cat
 
@@ -325,7 +325,7 @@ citizenship <- linear_reg() |>
 
 AIC = 10477.63
 
-The second model, lin-reg-wealth-type, is the best fit model when looking at a single variable linear regression. This model indicates the relationship between net worth and wealth type and we know it is the best fit model for our data because the AIC value is the lowest of the 3 models. Looking at how the billionaire's accumulated their wealth or what their citizenship is shows a less accurate picture of our data set.
+The second model, lin-reg-wealth-type, is the best fit model when looking at a single variable linear regression. This model indicates the relationship between net worth and wealth type and we know it is the best fit model for our data because the AIC value is the lowest of the 3 models. Looking at how the billionaire's accumulated their wealth or what their citizenship is shows a less accurate picture of our data set, however the AIC values are very similar, so none of the models are significantly better or worse than another.
 
 ## Two variable linear regression models
 
