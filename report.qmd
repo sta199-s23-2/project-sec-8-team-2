@@ -213,7 +213,7 @@ billionaires_2014 |>
   ggplot(aes(x = Inheritance, y = wealth.worth)) +
   geom_boxplot() +
   labs(title = "Net Worth vs Whether the Billionaire Received Inheritance",
-  x = "Inheritance",
+  x = "Wealth How",
   y = "Net Worth")
 ```
 
