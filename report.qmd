@@ -67,6 +67,7 @@ First, we load and glimpse our data:
 
 library(tidyverse)
 library(tidymodels)
+library(ggrepel)
 
 ```
 
@@ -249,17 +250,25 @@ wealth.inherited_prop <- billionaires_2014 |>
 8. Using the above data, we create pie chart visualizations. 
 ```{r}
 #l label: pie-wealth-cat
-
 cat_prop_vec <- pull(wealth.category_prop, prop_how)
 
 cat_labs <- c("n/a", "Energy", "Financial", "New Sectors", 
               "Non-Traded", "Resource", "Traded")
 
-pie(cat_prop_vec,
-    labels = cat_labs,
-    radius = 1.0,
-    main = "Wealth Category Proportions")
-
+wealth.category_prop |>
+  ggplot(
+    aes(x = "", y = cat_prop_vec, fill = cat_labs)
+  ) +
+  geom_col(width = 1) +
+  coord_polar(theta = "y") +
+  scale_fill_brewer(palette = "Pastel1") +
+  labs(
+    title = "Wealth Category Proportions",
+    x = "",
+    y = "",
+    fill = "Category"
+  ) +
+  theme_void()
 ```
 
 ```{r}
@@ -272,10 +281,19 @@ ind_labs <- c("n/a", "Construction", "Consumer", "Diversified Financial",
               "Private Equity", "Real Estate", "Retail/Restaurant",
               "Tech-Computer", "Tech-Medical", "Venture Capital")
 
-pie(ind_prop_vec,
-    radius = 1.0,
-    labels = ind_labs,
-    main = "Wealth Industry Proportions")
+wealth.industry_prop |>
+  ggplot(
+    aes(x = "", y = ind_prop_vec, fill = ind_labs)
+  ) +
+  geom_col(width = 1) +
+  coord_polar(theta = "y") +
+  labs(
+    title = "Wealth Industry Proportions",
+    x = "",
+    y = "",
+    fill = "Industry"
+  ) +
+  theme_void()
 ```
 
 ```{r}
@@ -285,10 +303,41 @@ inh_prop_vec <- pull(wealth.inherited_prop, prop_how)
 inh_labs <- c("3rd gen", "4th gen", "5th gen", "father", "not inherited",
               "spouse/widow")
 
-pie(inh_prop_vec,
-    radius = 1.0,
-    labels = inh_labs,
-    main = "Wealth Inherited Proportions")
+wealth.inherited_prop |>
+  ggplot(
+    aes(x = "", y = inh_prop_vec, fill = inh_labs)
+  ) +
+  geom_col(width = 1) +
+  coord_polar(theta = "y") +
+  scale_fill_brewer(palette = "Pastel1") +
+  labs(
+    title = "Wealth Inheritance Proportions",
+    x = "",
+    y = "",
+    fill = "Inheritance"
+  ) +
+  theme_void()
+```
+
+```{r}
+#l label: pie-citizenship
+
+citizenship_prop_vec <- pull(citizenship_prop, prop_how)
+citizenship_labs <- pull(citizenship_prop, location.citizenship)
+
+citizenship_prop |>
+  ggplot(
+    aes(x = "", y = citizenship_prop_vec, fill = citizenship_labs)
+  ) +
+  geom_col(width = 1) +
+  coord_polar(theta = "y") +
+  labs(
+    title = "Citizenship Proportions",
+    x = "",
+    y = "",
+    fill = "Citizenship"
+  ) +
+  theme_void()
 ```
 
 To evaluate our research question and to test our hypothesis, we selected a linear regression methodology since it is a common method to model relationships between dependent variables (billionaire net worth) and one or more independent variables (financial wealth, European citizenship, and inheritance). Moreover, it allows us to quantify the strength and direction of the relationship between the independent variables and the dependent variable. If the results of the linear regression analysis show a significant relationship between financial wealth, European citizenship, and inheritance and higher net worths of billionaires, then the data would support the hypothesis.
