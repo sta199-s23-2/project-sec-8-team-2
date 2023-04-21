@@ -68,6 +68,7 @@ First, we load and glimpse our data:
 library(tidyverse)
 library(tidymodels)
 library(ggrepel)
+library(viridis)
 
 ```
 
@@ -269,7 +270,8 @@ wealth.category_prop |>
     y = "",
     fill = "Category"
   ) +
-  theme_void()
+  theme_void() +
+  scale_fill_viridis_d()
 ```
 
 ```{r}
@@ -294,7 +296,8 @@ wealth.industry_prop |>
     y = "",
     fill = "Industry"
   ) +
-  theme_void()
+  theme_void() +
+  scale_fill_viridis_d()
 ```
 
 ```{r}
@@ -317,7 +320,8 @@ wealth.inherited_prop |>
     y = "",
     fill = "Inheritance"
   ) +
-  theme_void()
+  theme_void() +
+  scale_fill_viridis_d()
 ```
 
 Note that we exclude the citizenship pie chart because each citizenship type only accounts for a small proportion of all billionaires and the associated pie chart is not only difficult to read but not particularly meaningful. 
