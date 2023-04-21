@@ -251,77 +251,66 @@ wealth.inherited_prop <- billionaires_2014 |>
 
 8. Using the above data, we create pie chart visualizations. 
 ```{r}
-#l label: pie-wealth-cat
-cat_prop_vec <- pull(wealth.category_prop, prop_how)
-
-cat_labs <- c("n/a", "Energy", "Financial", "New Sectors", 
-              "Non-Traded", "Resource", "Traded")
+#l label: bar-wealth-cat
 
 wealth.category_prop |>
+  mutate(wealth.category = c("n/a", "Energy", "Financial", "New Sectors", 
+              "Non-Traded", "Resource", "Traded")) |>
   ggplot(
-    aes(x = "", y = cat_prop_vec, fill = cat_labs)
+    aes(x = wealth.category, y = prop_how)
   ) +
-  geom_col(width = 1, color = "white") +
-  coord_polar(theta = "y") +
-  scale_fill_brewer(palette = "Pastel1") +
+  geom_col() +
   labs(
     title = "Wealth Category Proportions",
-    x = "",
-    y = "",
-    fill = "Category"
+    x = "Wealth Category",
+    y = "Proportion of Billionaires"
   ) +
-  theme_void() +
-  scale_fill_viridis_d()
+  theme_bw() + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.30, hjust = 0.25))
+  
 ```
 
 ```{r}
-#l label: pie-wealth-ind
+#l label: bar-wealth-ind
 
-ind_prop_vec <- pull(wealth.industry_prop, prop_how)
-ind_labs <- c("n/a", "Construction", "Consumer", "Diversified Financial", 
+wealth.industry_prop |>
+  mutate(wealth.industry = c("n/a", "Construction", "Consumer", "Diversified Financial", 
               "Energy", "Hedge Funds", "Media", "Mining & Metals", 
               "Money Management", "Non-Consumer Industrial", "Other", 
               "Private Equity", "Real Estate", "Retail/Restaurant",
-              "Tech-Computer", "Tech-Medical", "Venture Capital")
-
-wealth.industry_prop |>
+              "Tech-Computer", "Tech-Medical", "Venture Capital")) |>
   ggplot(
-    aes(x = "", y = ind_prop_vec, fill = ind_labs)
+    aes(x = wealth.industry, y = prop_how)
   ) +
-  geom_col(width = 1, color = "white") +
-  coord_polar(theta = "y") +
+  geom_col() +
   labs(
     title = "Wealth Industry Proportions",
-    x = "",
-    y = "",
-    fill = "Industry"
+    x = "Wealth Industry",
+    y = "Proportion of Billionaires"
   ) +
-  theme_void() +
-  scale_fill_viridis_d()
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.30, hjust = 0.25))
+
 ```
 
 ```{r}
-#l label: pie-inherited
-
-inh_prop_vec <- pull(wealth.inherited_prop, prop_how)
-inh_labs <- c("3rd gen", "4th gen", "5th gen", "father", "not inherited",
-              "spouse/widow")
+#l label: bar-inherited
 
 wealth.inherited_prop |>
+    mutate(wealth.industry = c("3rd gen", "4th gen", "5th gen", "father", "not inherited",
+              "spouse/widow")) |>
   ggplot(
-    aes(x = "", y = inh_prop_vec, fill = inh_labs)
+    aes(x = wealth.industry, y = prop_how)
   ) +
-  geom_col(width = 1, color = "white") +
-  coord_polar(theta = "y") +
-  scale_fill_brewer(palette = "Pastel1") +
+  geom_col() +
   labs(
-    title = "Wealth Inheritance Proportions",
-    x = "",
-    y = "",
-    fill = "Inheritance"
+    title = "Wealth Industry Proportions",
+    x = "Wealth Industry",
+    y = "Proportion of Billionaires"
   ) +
-  theme_void() +
-  scale_fill_viridis_d()
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.30, hjust = 0.25))
+
 ```
 
 Note that we exclude the citizenship pie chart because each citizenship type only accounts for a small proportion of all billionaires and the associated pie chart is not only difficult to read but not particularly meaningful. 
