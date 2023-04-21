@@ -261,7 +261,7 @@ wealth.category_prop |>
   ggplot(
     aes(x = "", y = cat_prop_vec, fill = cat_labs)
   ) +
-  geom_col(width = 1) +
+  geom_col(width = 1, color = "white") +
   coord_polar(theta = "y") +
   scale_fill_brewer(palette = "Pastel1") +
   labs(
@@ -288,7 +288,7 @@ wealth.industry_prop |>
   ggplot(
     aes(x = "", y = ind_prop_vec, fill = ind_labs)
   ) +
-  geom_col(width = 1) +
+  geom_col(width = 1, color = "white") +
   coord_polar(theta = "y") +
   labs(
     title = "Wealth Industry Proportions",
@@ -311,7 +311,7 @@ wealth.inherited_prop |>
   ggplot(
     aes(x = "", y = inh_prop_vec, fill = inh_labs)
   ) +
-  geom_col(width = 1) +
+  geom_col(width = 1, color = "white") +
   coord_polar(theta = "y") +
   scale_fill_brewer(palette = "Pastel1") +
   labs(
