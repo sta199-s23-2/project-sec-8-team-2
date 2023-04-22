@@ -81,8 +81,8 @@ billionaires <- read_csv("data/billionaires.csv")
 glimpse(billionaires)
 ```
 
-Next, we wrangle the data. 
-1. We coerce the variables to have valid names for our analysis. 
+Next, we wrangle the data. 1. We coerce the variables to have valid names for our analysis.
+
 ```{r}
 #l label: coerce-valid-var-names
 
@@ -90,7 +90,8 @@ names(billionaires) <- make.names(names(billionaires),
                                   unique = TRUE)
 ```
 
-2. We filter the data to only include data from 2014. 
+2.  We filter the data to only include data from 2014.
+
 ```{r}
 #l label: 2014-only
 
@@ -98,7 +99,8 @@ billionaires_2014 <- billionaires |>
   filter(year == "2014")
 ```
 
-3. We create a new citizenship variable that describes whether or not the billionaire holds European citizenship. 
+3.  We create a new citizenship variable that describes whether or not the billionaire holds European citizenship.
+
 ```{r}
 #l label: mutate-citizenship
 
@@ -113,10 +115,11 @@ billionaires_2014 <- billionaires_2014 |>
                      "Ukraine", "Czech Republic", "Denmark", "Austria",
                      "Portugal", "Liechtenstein", "Norway", "Belgium",
                      "Poland", "Finland", "Guernsey", "Romania", "Lithuania"),
-                   "Europe", "Not Europe"))
+                     "Europe", "Not Europe"))
 ```
 
-4. Next, we compute mean, median, and standard deviation of net worth for each potential outcome for our variables of interest.
+4.  Next, we compute mean, median, and standard deviation of net worth for each potential outcome for our variables of interest.
+
 ```{r}
 #| label: summary_stats
 
@@ -156,7 +159,8 @@ billionaires_2014 |>
 
 ```
 
-5. Using the above data, we create box plots that visualize how each variable affects the distribution of billionaire net worths. 
+5.  Using the above data, we create box plots that visualize how each variable affects the distribution of billionaire net worths.
+
 ```{r}
 #| label: box-plot-citizen
 
@@ -206,7 +210,8 @@ ggplot(
 
 ```
 
-6. We also created a box plot to visualize the difference in net worth between billionaires who did and did not inherit money. 
+6.  We also created a box plot to visualize the difference in net worth between billionaires who did and did not inherit money.
+
 ```{r}
 #| label: scatter_inherit
 
@@ -220,7 +225,8 @@ billionaires_2014 |>
   y = "Net Worth")
 ```
 
-7. Additionally, for each of our variables of interest, we compute the proportion of billionaires associated with each outcome. 
+7.  Additionally, for each of our variables of interest, we compute the proportion of billionaires associated with each outcome.
+
 ```{r}
 #| label: proportion_stats_tables
 
@@ -249,7 +255,8 @@ wealth.inherited_prop <- billionaires_2014 |>
   na.omit()
 ```
 
-8. Using the above data, we create pie chart visualizations. 
+8.  Using the above data, we create pie chart visualizations.
+
 ```{r}
 #l label: bar-wealth-cat
 
@@ -313,12 +320,13 @@ wealth.inherited_prop |>
 
 ```
 
-Note that we exclude the citizenship pie chart because each citizenship type only accounts for a small proportion of all billionaires and the associated pie chart is not only difficult to read but not particularly meaningful. 
+Note that we exclude the citizenship pie chart because each citizenship type only accounts for a small proportion of all billionaires and the associated pie chart is not only difficult to read but not particularly meaningful.
 
 To evaluate our research question and to test our hypothesis, we selected a linear regression methodology since it is a common method to model relationships between dependent variables (billionaire net worth) and one or more independent variables (financial wealth, European citizenship, and inheritance). Moreover, it allows us to quantify the strength and direction of the relationship between the independent variables and the dependent variable. If the results of the linear regression analysis show a significant relationship between financial wealth, European citizenship, and inheritance and higher net worths of billionaires, then the data would support the hypothesis.
 
 # Results
-*Note that equations are not included because they are long, and given the abundance of terms in each equation, we felt that equations were not particularly useful for supporting the overall narrative. 
+
+\*Note that equations are not included because they are long, and given the abundance of terms in each equation, we felt that equations were not particularly useful for supporting the overall narrative.
 
 ## Single variable linear regression models
 
@@ -360,7 +368,6 @@ citizenship <- linear_reg() |>
   glance() |>
   pull(AIC)
 ```
-
 
 Citizenship: AIC = 10477.63
 
