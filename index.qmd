@@ -1,8 +1,8 @@
 ---
-title: "TEAM NAME"
+title: "Team 2 - Billionaire Wealth"
 subtitle: "STA 199 Project"
 format: html
 editor: visual
 ---
 
-Add project abstract here.
+In this report, we investigate the potential sources of billionaire wealth. Specifically, we assess the question of how do wealth category, citizenship, and wealth type relate to billionaire net worths in 2014? Our data comes from the "billionaires" data set, which we obtained from the CORGIS Dataset Project. This data set was created by Ryan Whitcomb in 2016 and originally sourced from a report by Caroline Freund and Sarah Oliver of the Peterson Institute for International Economics. In this study, we compute summary statistics (mean, median, and standard deviation) of billionaire wealth based on wealth category, citizenship, and wealth type. We then compute proportions that enumerate the breakdown of billionaires with respect to the wealth category, citizenship, and wealth type. Lastly, we construct linear regression models to model billionaire wealth. Our findings suggest that financial wealth, inheritance, and European citizenship are associated with billionaire wealth. Overall, a single variable wealth type linear regression best models billionaire wealth. For multiple variable linear regression, we find that for this data set, additive models are better models than interaction models. Nevertheless, our models do not differ substantially in their strength in modeling billionaire wealth.
