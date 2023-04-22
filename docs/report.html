@@ -342,75 +342,69 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <p><img src="report_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="report_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
+<p>Note that we exclude the citizenship pie chart because each citizenship type only accounts for a small proportion of all billionaires and the associated pie chart is not only difficult to read but not particularly meaningful.</p>
 <p>To evaluate our research question and to test our hypothesis, we selected a linear regression methodology since it is a common method to model relationships between dependent variables (billionaire net worth) and one or more independent variables (financial wealth, European citizenship, and inheritance). Moreover, it allows us to quantify the strength and direction of the relationship between the independent variables and the dependent variable. If the results of the linear regression analysis show a significant relationship between financial wealth, European citizenship, and inheritance and higher net worths of billionaires, then the data would support the hypothesis.</p>
 </section>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
+<p>*Note that equations are not included because they are long, and given the abundance of terms in each equation, we felt that equations were not particularly useful for supporting the overall narrative.</p>
 <section id="single-variable-linear-regression-models" class="level2">
 <h2 class="anchored" data-anchor-id="single-variable-linear-regression-models">Single variable linear regression models</h2>
 <div class="cell">
 
 </div>
-<p>AIC = 10474.78</p>
+<p>Wealth category: AIC = 10474.78</p>
 <div class="cell">
 
 </div>
-<p>AIC = 10458.57</p>
+<p>Wealth type: AIC = 10458.57</p>
 <div class="cell">
 
 </div>
-<p>AIC = 10477.63</p>
-<p>The second model, lin-reg-wealth-type, is the best fit model when looking at a single variable linear regression. This model indicates the relationship between net worth and wealth type and we know it is the best fit model for our data because the AIC value is the lowest of the 3 models. Looking at how the billionaire’s accumulated their wealth or what their citizenship is shows a less accurate picture of our data set, however the AIC values are very similar, so none of the models are significantly better or worse than another.</p>
+<p>Citizenship: AIC = 10477.63</p>
 </section>
 <section id="two-variable-linear-regression-models" class="level2">
 <h2 class="anchored" data-anchor-id="two-variable-linear-regression-models">Two variable linear regression models</h2>
 <div class="cell">
 
 </div>
-<p>AIC = 10460.54</p>
+<p>Additive wealthy type and citizenship: AIC = 10460.54</p>
 <div class="cell">
 
 </div>
-<p>AIC = 10462.5</p>
-<p>AIC = 10462.5</p>
+<p>Interactive wealth type and citizenship: AIC = 10462.5</p>
 <div class="cell">
 
 </div>
-<p>AIC = 10458.79</p>
+<p>Additive wealth type and category: AIC = 10458.79</p>
 <div class="cell">
 
 </div>
-<p>AIC = 10472.22</p>
+<p>Interactive wealth type and category: AIC = 10472.22</p>
 <div class="cell">
 
 </div>
-<p>AIC = 10476.53</p>
+<p>Additive citizenship and cateegory: AIC = 10476.53</p>
 <div class="cell">
 
 </div>
-<p>AIC = 10478.38</p>
-<p>For our two variable linear regression models, the additive model “wealth.type + wealth.how.category” is the best fit for our data set. Its AIC is the lowest of the other additive model, as well as the two interaction models.</p>
+<p>Interactive citizenship and category: AIC = 10478.38</p>
 </section>
 <section id="three-variable-linear-regression-models" class="level2">
 <h2 class="anchored" data-anchor-id="three-variable-linear-regression-models">Three variable linear regression models</h2>
 <div class="cell">
 
 </div>
-<p>AIC = 10460.77</p>
+<p>Additive wealth type, citizenship, and category: AIC = 10460.77</p>
 <div class="cell">
 
 </div>
-<p>AIC = 10479.69</p>
+<p>Interactive wealth type, citizenship, and category: AIC = 10479.69</p>
 <p>In the one variable linear regression models, the wealth type model had the lowest AIC, indicating that in a one variable linear regression, wealth type is the best fit for modeling billionaire wealth.</p>
 <p>In the two variable linear regression models, the additive wealth type and citizenship model had the lowest AIC, indicating that in a two variable linear regression, an additive wealth type and citizenship model is the best fit for modeling billionaire wealth.</p>
 <p>Similarly, in the three variable linear regression models, the additive model had the lowest AIC, indicating that in a three variable linear regression, an additive model is the best fit for modeling billionaire wealth.</p>
-<p>Overall, our two and three variable linear regression models indicate that in modeling billionaire wealth, the additive model is a better fit than the interaction model. In all the two and three variable models, the additive models had lower AIC values than their corresponding interaction models, indicating better fit.</p>
+<p>Overall, our two and three variable linear regression models indicate that in modeling billionaire wealth, the additive model is a better fit than the interaction model. In all the two and three variable models, the additive models had lower AIC values than their corresponding interaction models, indicating better fit and that our variables of interest do not really interact.</p>
 </section>
 </section>
 <section id="conclusion" class="level1">
