@@ -108,14 +108,14 @@ categories_vec <- unique(billionaires$location.citizenship)
 categories_tib <- enframe(categories_vec)
 
 billionaires_2014 <- billionaires_2014 |>
-  mutate(citizenship_euro = if_else(location.citizenship %in% 
+  mutate(citizenship_euro = if_else(location.citizenship %in%
                    c("Switzerland", "Spain", "Germany", "Sweden",
                      "France", "Italy", "Russia", "United Kingdom",
                      "Turkey", "Netherlands", "Greece", "Ireland",
                      "Ukraine", "Czech Republic", "Denmark", "Austria",
                      "Portugal", "Liechtenstein", "Norway", "Belgium",
                      "Poland", "Finland", "Guernsey", "Romania", "Lithuania"),
-                     "Europe", "Not Europe"))
+                   "Europe", "Not Europe"))
 ```
 
 4.  Next, we compute mean, median, and standard deviation of net worth for each potential outcome for our variables of interest.
