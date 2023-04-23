@@ -172,7 +172,8 @@ ggplot(
   geom_boxplot() +
   labs(title = "Citizenship vs. Net Worth",
        x = "Citizenship",
-       y = "Net Worth")
+       y = "Net Worth") +
+  theme_gray()
 
 ```
 
@@ -189,7 +190,8 @@ ggplot(
   geom_boxplot() +
   labs(title = "Wealth Category vs. Net Worth",
        x = "Wealth Category",
-       y = "Net Worth")
+       y = "Net Worth") +
+  theme_gray()
 
 ```
 
@@ -206,7 +208,8 @@ ggplot(
   geom_boxplot() +
   labs(title = "Type of Inheritance vs. Net Worth",
        x = "Inheritance",
-       y = "Net Worth")
+       y = "Net Worth") +
+  theme_gray()
 
 ```
 
@@ -222,7 +225,9 @@ billionaires_2014 |>
   geom_boxplot() +
   labs(title = "Net Worth vs Whether the Billionaire Received Inheritance",
   x = "Wealth How",
-  y = "Net Worth")
+  y = "Net Worth") +
+  theme_gray()
+
 ```
 
 7.  Additionally, for each of our variables of interest, we compute the proportion of billionaires associated with each outcome.
@@ -272,8 +277,10 @@ wealth.category_prop |>
     x = "Wealth Category",
     y = "Proportion of Billionaires"
   ) +
-  theme_bw() + 
-  theme(axis.text.x = element_text(angle = 45, vjust = 0.30, hjust = 0.25))
+  theme_gray() + 
+  theme(axis.text.x = element_text(angle = 45,
+                                   vjust = 0.30,
+                                   hjust = 0.25))
   
 ```
 
@@ -295,8 +302,10 @@ wealth.industry_prop |>
     x = "Wealth Industry",
     y = "Proportion of Billionaires"
   ) +
-  theme_bw() +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.30, hjust = 1))
+  theme_gray() +
+  theme(axis.text.x = element_text(angle = 90,
+                                   vjust = 0.30,
+                                   hjust = 1))
 
 ```
 
@@ -315,8 +324,10 @@ wealth.inherited_prop |>
     x = "Inheritance",
     y = "Proportion of Billionaires"
   ) +
-  theme_bw() +
-  theme(axis.text.x = element_text(angle = 45, vjust = 0.30, hjust = 0.25))
+  theme_gray() +
+  theme(axis.text.x = element_text(angle = 45,
+                                   vjust = 0.30,
+                                   hjust = 0.25))
 
 ```
 
