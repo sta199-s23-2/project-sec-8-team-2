@@ -296,7 +296,7 @@ wealth.industry_prop |>
     y = "Proportion of Billionaires"
   ) +
   theme_bw() +
-  theme(axis.text.x = element_text(angle = 45, vjust = 0.30, hjust = 0.25))
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.30, hjust = 1))
 
 ```
 
@@ -311,8 +311,8 @@ wealth.inherited_prop |>
   ) +
   geom_col() +
   labs(
-    title = "Wealth Industry Proportions",
-    x = "Wealth Industry",
+    title = "Wealth Inherited Proportions",
+    x = "Inheritance",
     y = "Proportion of Billionaires"
   ) +
   theme_bw() +
