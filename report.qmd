@@ -30,7 +30,7 @@ This report focuses on four variables: wealth, wealth type, wealth category, and
 
 4.  Citizenship - Called "location.citizenship" in the data set. A nominal categorical variable that describes the country of citizenship of the billionaire. In this report, we group citizenship into Europe and Not Europe.
 
-The method by which information for this data set was collected priimarily raises two ethical concerns. First, when data collection involves human subjects, it is best practice to obtain the subjects' consent. Although the Forbes journalists conducted interviews with subjects, it is unclear whether the journalists obtained the consent of all the billionaires that they collected data on. Moreover, it is unclear whether how Forbes obtained shareholder information and company financial statements. Second, this data set contains extensive personal identifying information about individuals, which may conflict for practices of de-identifying subjects and preserving subjects' anonymity.
+The method by which information for this data set was collected primarily raises two ethical concerns. First, when data collection involves human subjects, it is best practice to obtain the subjects' consent. Although the Forbes journalists conducted interviews with subjects, it is unclear whether the journalists obtained the consent of all the billionaires that they collected data on. Moreover, it is unclear how Forbes obtained shareholder information and company financial statements. Second, this data set contains extensive personal identifying information about individuals, which may conflict with practices of de-identifying subjects and preserving subjects' anonymity.
 
 # Literature Review
 
@@ -42,7 +42,7 @@ This article directly addresses the origins of how billionaires get their wealth
 
 **How our research differs:**
 
-The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth. We will specifically interrogate how significant of a role inheritance plays in wealth-building, which in an area that this article does not explicitly address.
+The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth. Our analysis will interroate how inheritance as well as wealth category, industry, and citizenship are associated with billionaire wealth. Moreover, we will construct linear regression models to identify which variable best models billionaire wealth.
 
 **Additional published credible article:**
 
@@ -81,7 +81,7 @@ billionaires <- read_csv("data/billionaires.csv")
 glimpse(billionaires)
 ```
 
-Next, we wrangle the data. 1. We coerce the variables to have valid names for our analysis.
+Next, we wrangle the data. First, we remove spaces in variable names and coerce the variables to have valid names for our analysis.
 
 ```{r}
 #l label: coerce-valid-var-names
@@ -90,7 +90,7 @@ names(billionaires) <- make.names(names(billionaires),
                                   unique = TRUE)
 ```
 
-2.  We filter the data to only include data from 2014.
+Then, we filter the data to only include observations from 2014.
 
 ```{r}
 #l label: 2014-only
@@ -99,7 +99,7 @@ billionaires_2014 <- billionaires |>
   filter(year == "2014")
 ```
 
-3.  We create a new citizenship variable that describes whether or not the billionaire holds European citizenship.
+Next, we create a new citizenship variable that describes whether or not the billionaire holds European citizenship.
 
 ```{r}
 #l label: mutate-citizenship
@@ -118,7 +118,7 @@ billionaires_2014 <- billionaires_2014 |>
                    "Europe", "Not Europe"))
 ```
 
-4.  Next, we compute mean, median, and standard deviation of net worth for each potential outcome for our variables of interest.
+Then, we compute mean, median, and standard deviation of net worth for each potential outcome for our variables of interest.
 
 ```{r}
 #| label: summary_stats
@@ -159,7 +159,7 @@ billionaires_2014 |>
 
 ```
 
-5.  Using the above data, we create box plots that visualize how each variable affects the distribution of billionaire net worths.
+Using the above data, we create box plots that visualize how each variable affects the distribution of billionaire net worths.
 
 ```{r}
 #| label: box-plot-citizen
@@ -213,7 +213,7 @@ ggplot(
 
 ```
 
-6.  We also created a box plot to visualize the difference in net worth between billionaires who did and did not inherit money.
+We also created a box plot to visualize the difference in net worth between billionaires who did and did not inherit money.
 
 ```{r}
 #| label: scatter_inherit
@@ -230,7 +230,7 @@ billionaires_2014 |>
 
 ```
 
-7.  Additionally, for each of our variables of interest, we compute the proportion of billionaires associated with each outcome.
+Additionally, for each of our variables of interest, we compute the proportion of billionaires associated with each outcome.
 
 ```{r}
 #| label: proportion_stats_tables
@@ -260,7 +260,7 @@ wealth.inherited_prop <- billionaires_2014 |>
   na.omit()
 ```
 
-8.  Using the above data, we create pie chart visualizations.
+Using the above data, we created bar charts that visualize the absolute and relative proportion of billionaires in each category.
 
 ```{r}
 #l label: bar-wealth-cat
@@ -507,6 +507,8 @@ To test our hypothesis, we began by grouping our data set by billionaires posses
 The mean of the billionaires net worth is 3.9 billion dollars. The median 2.1 billion dollars and the standard deviation 5.75 billion dollars. By grouping it by wealth.how.industry, we observed the drastic differences in total net worth, depending on the industry they accumulated wealth through. Technology (Computer) producing the richest billionaires with a mean of 5.23 billion dollars. With wealth.how.category, we notice that wealth was accumulated the most on average in Non-Traded Sectors. With the variable citizenship_euro, we came to the conclusion that on average the wealthier billionaires come from a European country, with their net worth coming in at 4.04 billion dollars, compared to the Non-Europeans at 3.85 billion dollars. Wealth.type indicates to us that those who inherited their wealth have on average a higher net worth. We then created box plots and pie charts to visually graph these results.
 
 Lastly, we created linear regression models, both additive and interaction. The one variable wealth type linear regression model yielded the lowest AIC, indicating that wealth type is the best out of our variables of interest for modeling billionaire wealth. Considering that financial wealth accounted for a large proportion of the billionaires in the data set, our results provide evidence that financial wealth may have a relationship with billionaire status. It is important to note, however, that the AIC's for all of these models were relatively similar and the difference may not be significant enough to consider one model as definitively better than the others. We find that one average, the wealthiest billionaires have derived wealth from inheritance. Therefore, our study provides evidence that inheritance is associated with a higher net worth. Our study also supports our hypothesis that European citizenship is associated with higher net worths.
+
+Given the nature of our data set and our methodology of constructing linear regression models, our conclusions are rather weak. We can only conclude correlation (i.e., that certain variables are associated with billionaire wealth accumulation) but not causation (i.e., that certain cariables cause billionaires to have more wealth). In our study, we were unable to isolate our variables of interest from potentially confounding variables to determine causation. Since our data set includes only observations from 2014 (nine years ago), our conclusions may also be outdated and not reflect the current trends in billionaire wealth accumulation. Future work may repeat our study on more recent data sets or conduct an experimental study rather than an observational study. Experiments that control for potentially confounding variables may faciliate the development of a causal conclusion. 
 
 # Works Cited
 
