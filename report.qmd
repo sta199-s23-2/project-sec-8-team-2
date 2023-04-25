@@ -185,13 +185,13 @@ ggplot(
   aes(x = wealth.how.category,
       y = wealth.worth), 
   ) +
-  theme(axis.text.x = element_text(angle = 45,
-                                   hjust = 1)) +
   geom_boxplot() +
   labs(title = "Wealth Category vs. Net Worth",
        x = "Wealth Category",
        y = "Net Worth") +
-  theme_gray()
+  theme_gray() +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1))
 
 ```
 
@@ -330,8 +330,6 @@ wealth.inherited_prop |>
                                    hjust = 0.25))
 
 ```
-
-Note that we exclude the citizenship pie chart because each citizenship type only accounts for a small proportion of all billionaires and the associated pie chart is not only difficult to read but not particularly meaningful.
 
 To evaluate our research question and to test our hypothesis, we selected a linear regression methodology since it is a common method to model relationships between dependent variables (billionaire net worth) and one or more independent variables (financial wealth, European citizenship, and inheritance). Moreover, it allows us to quantify the strength and direction of the relationship between the independent variables and the dependent variable. If the results of the linear regression analysis show a significant relationship between financial wealth, European citizenship, and inheritance and higher net worths of billionaires, then the data would support the hypothesis.
 
