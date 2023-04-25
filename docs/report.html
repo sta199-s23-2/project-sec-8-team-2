@@ -160,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Wealth category - Called “wealth.how.category” in the data set. A nominal categorical variable that describes the category of wealth. For billionaires in 2014, there are six wealth categories: energy, financial, new, non-traded, resource, and traded.</p></li>
 <li><p>Citizenship - Called “location.citizenship” in the data set. A nominal categorical variable that describes the country of citizenship of the billionaire. In this report, we group citizenship into Europe and Not Europe.</p></li>
 </ol>
-<p>The method by which information for this data set was collected priimarily raises two ethical concerns. First, when data collection involves human subjects, it is best practice to obtain the subjects’ consent. Although the Forbes journalists conducted interviews with subjects, it is unclear whether the journalists obtained the consent of all the billionaires that they collected data on. Moreover, it is unclear whether how Forbes obtained shareholder information and company financial statements. Second, this data set contains extensive personal identifying information about individuals, which may conflict for practices of de-identifying subjects and preserving subjects’ anonymity.</p>
+<p>The method by which information for this data set was collected primarily raises two ethical concerns. First, when data collection involves human subjects, it is best practice to obtain the subjects’ consent. Although the Forbes journalists conducted interviews with subjects, it is unclear whether the journalists obtained the consent of all the billionaires that they collected data on. Moreover, it is unclear how Forbes obtained shareholder information and company financial statements. Second, this data set contains extensive personal identifying information about individuals, which may conflict with practices of de-identifying subjects and preserving subjects’ anonymity.</p>
 </section>
 <section id="literature-review" class="level1">
 <h1>Literature Review</h1>
@@ -168,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Summary:</strong></p>
 <p>This article directly addresses the origins of how billionaires get their wealth and what characteristics contributed to the rise of their wealth. The article specifies the age of billionaires as they reach the milestones of becoming millionaires and onwards. It looks into what economic sectors they work in and how much those sectors contributed to their wealth and compares the trends between Europe and America. They also compare personal factors like age and family inheritance.</p>
 <p><strong>How our research differs:</strong></p>
-<p>The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth. We will specifically interrogate how significant of a role inheritance plays in wealth-building, which in an area that this article does not explicitly address.</p>
+<p>The research article analyzes and brings in new information on the impact of inheritance on accumulated wealth and net worth. Our analysis will interroate how inheritance as well as wealth category, industry, and citizenship are associated with billionaire wealth. Moreover, we will construct linear regression models to identify which variable best models billionaire wealth.</p>
 <p><strong>Additional published credible article:</strong></p>
 <p>Sanandaji, Tino. “The international mobility of billionaires.” Small Business Economics 42 (2014): 329-338.</p>
 <p><strong>Summary:</strong></p>
@@ -211,25 +211,19 @@ $ `wealth.how.was founder`   &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T…</code></pre>
 </div>
 </div>
-<p>Next, we wrangle the data. 1. We coerce the variables to have valid names for our analysis.</p>
+<p>Next, we wrangle the data. First, we remove spaces in variable names and coerce the variables to have valid names for our analysis.</p>
 <div class="cell">
 
 </div>
-<ol start="2" type="1">
-<li>We filter the data to only include data from 2014.</li>
-</ol>
+<p>Then, we filter the data to only include observations from 2014.</p>
 <div class="cell">
 
 </div>
-<ol start="3" type="1">
-<li>We create a new citizenship variable that describes whether or not the billionaire holds European citizenship.</li>
-</ol>
+<p>Next, we create a new citizenship variable that describes whether or not the billionaire holds European citizenship.</p>
 <div class="cell">
 
 </div>
-<ol start="4" type="1">
-<li>Next, we compute mean, median, and standard deviation of net worth for each potential outcome for our variables of interest.</li>
-</ol>
+<p>Then, we compute mean, median, and standard deviation of net worth for each potential outcome for our variables of interest.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 4
@@ -292,9 +286,7 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 6 &lt;NA&gt;                            3.2           3.2        0.141 TRUE </code></pre>
 </div>
 </div>
-<ol start="5" type="1">
-<li>Using the above data, we create box plots that visualize how each variable affects the distribution of billionaire net worths.</li>
-</ol>
+<p>Using the above data, we create box plots that visualize how each variable affects the distribution of billionaire net worths.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="report_files/figure-html/box-plot-citizen-1.png" class="img-fluid" width="672"></p>
@@ -310,23 +302,17 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <p><img src="report_files/figure-html/box-plot-inh-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<ol start="6" type="1">
-<li>We also created a box plot to visualize the difference in net worth between billionaires who did and did not inherit money.</li>
-</ol>
+<p>We also created a box plot to visualize the difference in net worth between billionaires who did and did not inherit money.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="report_files/figure-html/scatter_inherit-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<ol start="7" type="1">
-<li>Additionally, for each of our variables of interest, we compute the proportion of billionaires associated with each outcome.</li>
-</ol>
+<p>Additionally, for each of our variables of interest, we compute the proportion of billionaires associated with each outcome.</p>
 <div class="cell">
 
 </div>
-<ol start="8" type="1">
-<li>Using the above data, we create pie chart visualizations.</li>
-</ol>
+<p>Using the above data, we created bar charts that visualize the absolute and relative proportion of billionaires in each category.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="report_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
@@ -412,6 +398,7 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <p>To test our hypothesis, we began by grouping our data set by billionaires possessing citizenship in a European country and those with Non-European citizenship. We then calculated the summary statistics (mean, median, standard deviation) of the variable wealth.worth and then again but by filtering wealth.worth through different variables.</p>
 <p>The mean of the billionaires net worth is 3.9 billion dollars. The median 2.1 billion dollars and the standard deviation 5.75 billion dollars. By grouping it by wealth.how.industry, we observed the drastic differences in total net worth, depending on the industry they accumulated wealth through. Technology (Computer) producing the richest billionaires with a mean of 5.23 billion dollars. With wealth.how.category, we notice that wealth was accumulated the most on average in Non-Traded Sectors. With the variable citizenship_euro, we came to the conclusion that on average the wealthier billionaires come from a European country, with their net worth coming in at 4.04 billion dollars, compared to the Non-Europeans at 3.85 billion dollars. Wealth.type indicates to us that those who inherited their wealth have on average a higher net worth. We then created box plots and pie charts to visually graph these results.</p>
 <p>Lastly, we created linear regression models, both additive and interaction. The one variable wealth type linear regression model yielded the lowest AIC, indicating that wealth type is the best out of our variables of interest for modeling billionaire wealth. Considering that financial wealth accounted for a large proportion of the billionaires in the data set, our results provide evidence that financial wealth may have a relationship with billionaire status. It is important to note, however, that the AIC’s for all of these models were relatively similar and the difference may not be significant enough to consider one model as definitively better than the others. We find that one average, the wealthiest billionaires have derived wealth from inheritance. Therefore, our study provides evidence that inheritance is associated with a higher net worth. Our study also supports our hypothesis that European citizenship is associated with higher net worths.</p>
+<p>Given the nature of our data set and our methodology of constructing linear regression models, our conclusions are rather weak. We can only conclude correlation (i.e., that certain variables are associated with billionaire wealth accumulation) but not causation (i.e., that certain cariables cause billionaires to have more wealth). In our study, we were unable to isolate our variables of interest from potentially confounding variables to determine causation. Since our data set includes only observations from 2014 (nine years ago), our conclusions may also be outdated and not reflect the current trends in billionaire wealth accumulation. Future work may repeat our study on more recent data sets or conduct an experimental study rather than an observational study. Experiments that control for potentially confounding variables may faciliate the development of a causal conclusion.</p>
 </section>
 <section id="works-cited" class="level1">
 <h1>Works Cited</h1>
