@@ -339,8 +339,6 @@ We constructed all possible models for one, two, and three variable linear regre
 
 # Results
 
-\*Note that we opted not to include the regression model equations in our report
-
 ## Single variable linear regression models
 
 ```{r}
@@ -507,6 +505,8 @@ The following is the equation for the best fitting model (single variable wealth
 $$
 \widehat{wealth} = 2.70 + 1.42*founder + 1.72*inherited + 1.31*privatized + 0.61*finance
 $$
+
+Note that we only show the equation for the best fitting model because model equations were long, and we felt that they were not particularly meaningful to the overall findings, especially considering their length and complexity. 
 
 # Discussion
 
