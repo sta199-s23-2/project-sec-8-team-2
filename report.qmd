@@ -81,12 +81,13 @@ library(viridis)
 billionaires <- read_csv("data/billionaires.csv")
 
 glimpse(billionaires)
+
 ```
 
 Next, we wrangle the data. First, we remove spaces in variable names and coerce the variables to have valid names for our analysis.
 
 ```{r}
-#l label: coerce-valid-var-names
+#| label: coerce-valid-var-names
 
 names(billionaires) <- make.names(names(billionaires),
                                   unique = TRUE)
@@ -95,16 +96,17 @@ names(billionaires) <- make.names(names(billionaires),
 Then, we filter the data to only include observations from 2014.
 
 ```{r}
-#l label: 2014-only
+#| label: 2014-only
 
 billionaires_2014 <- billionaires |>
   filter(year == "2014")
+
 ```
 
 Next, we create a new citizenship variable that describes whether or not the billionaire holds European citizenship.
 
 ```{r}
-#l label: mutate-citizenship
+#| label: mutate-citizenship
 
 categories_vec <- unique(billionaires$location.citizenship)
 categories_tib <- enframe(categories_vec)
@@ -225,7 +227,7 @@ billionaires_2014 |>
                                "Inherited", "Other")) |>
   ggplot(aes(x = Inheritance, y = wealth.worth)) +
   geom_boxplot() +
-  labs(title = "Net Worth vs Whether the Billionaire Received Inheritance",
+  labs(title = "Net Worth vs. Whether the Billionaire Received Inheritance",
   x = "Wealth How",
   y = "Net Worth") +
   theme_gray()
@@ -265,11 +267,11 @@ wealth.inherited_prop <- billionaires_2014 |>
 Using the above data, we created bar charts that visualize the absolute and relative proportion of billionaires in each category.
 
 ```{r}
-#l label: bar-wealth-cat
+#| label: bar-wealth-cat
 
 wealth.category_prop |>
   mutate(wealth.category = c("n/a", "Energy", "Financial", "New Sectors", 
-              "Non-Traded", "Resource", "Traded")) |>
+                             "Non-Traded", "Resource", "Traded")) |>
   ggplot(
     aes(x = wealth.category, y = prop_how)
   ) +
@@ -287,14 +289,16 @@ wealth.category_prop |>
 ```
 
 ```{r}
-#l label: bar-wealth-ind
+#| label: bar-wealth-ind
 
 wealth.industry_prop |>
-  mutate(wealth.industry = c("n/a", "Construction", "Consumer", "Diversified Financial", 
-              "Energy", "Hedge Funds", "Media", "Mining & Metals", 
-              "Money Management", "Non-Consumer Industrial", "Other", 
-              "Private Equity", "Real Estate", "Retail/Restaurant",
-              "Tech-Computer", "Tech-Medical", "Venture Capital")) |>
+  mutate(wealth.industry = c("n/a", "Construction", "Consumer",
+                             "Diversified Financial", "Energy",
+                             "Hedge Funds", "Media", "Mining & Metals", 
+                              "Money Management", "Non-Consumer Industrial",
+                              "Other", "Private Equity", "Real Estate",
+                             "Retail/Restaurant", "Tech-Computer",
+                             "Tech-Medical", "Venture Capital")) |>
   ggplot(
     aes(x = wealth.industry, y = prop_how)
   ) +
@@ -312,11 +316,11 @@ wealth.industry_prop |>
 ```
 
 ```{r}
-#l label: bar-inherited
+#| label: bar-inherited
 
 wealth.inherited_prop |>
-    mutate(wealth.industry = c("3rd gen", "4th gen", "5th gen", "father", "not inherited",
-              "spouse/widow")) |>
+    mutate(wealth.industry = c("3rd gen", "4th gen", "5th gen", "father",
+                               "not inherited", "spouse/widow")) |>
   ggplot(
     aes(x = wealth.industry, y = prop_how)
   ) +
@@ -342,7 +346,7 @@ We constructed all possible models for one, two, and three variable linear regre
 ## Single variable linear regression models
 
 ```{r}
-#l label: lin-reg-wealth-category
+#| label: lin-reg-wealth-category
 
 wealth_category <- linear_reg() |>
   set_engine("lm") |>
@@ -356,7 +360,7 @@ wealth_category <- linear_reg() |>
 Wealth category: AIC = 10474.78
 
 ```{r}
-#l label: lin-reg-wealth-type
+#| label: lin-reg-wealth-type
 
 wealth_type <- linear_reg() |>
   set_engine("lm") |>
@@ -370,7 +374,7 @@ wealth_type <- linear_reg() |>
 Wealth type: AIC = 10458.57
 
 ```{r}
-#l label: lin-reg-citizenship
+#| label: lin-reg-citizenship
 
 citizenship <- linear_reg() |>
   set_engine("lm") |>
