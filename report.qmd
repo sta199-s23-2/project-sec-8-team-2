@@ -510,7 +510,7 @@ Lastly, we created linear regression models, both additive and interaction. The 
 
 Given the nature of our data set and our methodology of constructing linear regression models, our conclusions are rather weak. We can only conclude correlation (i.e., that certain variables are associated with billionaire wealth accumulation) but not causation (i.e., that certain cariables cause billionaires to have more wealth). In our study, we were unable to isolate our variables of interest from potentially confounding variables to determine causation. Since our data set includes only observations from 2014 (nine years ago), our conclusions may also be outdated and not reflect the current trends in billionaire wealth accumulation. Future work may repeat our study on more recent data sets or conduct an experimental study rather than an observational study. Experiments that control for potentially confounding variables may faciliate the development of a causal conclusion.
 
-Overall, our findings suggest that certain factors may be correlated with billionaire wealth. In other words, becoming a billionaire may not be random chance or as simple as "just work hard and it'll pay off." Certain types of citizenship, wealth type, and wealth category seem to be more prone to having billionaires.
+Overall, our findings suggest that certain factors may be correlated with billionaire wealth. In other words, becoming a billionaire may not be random chance, or as simple as "work hard and it'll pay off." Certain types of citizenship, wealth type, and wealth category seem to be more prone to producing billionaires.
 
 # Works Cited
 
